@@ -10,5 +10,13 @@ namespace tccLavanderia.model
     {
         public int id { get; set; }
         public string processo { get; set; }
+
+        public Lavagem() { }
+
+        public Lavagem(int id, string processo)
+        {
+            this.id = id;
+            this.processo = processo;
+        }
     }
 }

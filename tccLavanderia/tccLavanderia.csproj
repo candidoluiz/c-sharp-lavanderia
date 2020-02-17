@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dao\CidadeDao.cs" />
+    <Compile Include="dao\LavagemDao.cs" />
     <Compile Include="dao\LavanderiaDao.cs" />
     <Compile Include="dao\TecidoDao.cs" />
     <Compile Include="model\Cidade.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="repository\ConnectionFactory.cs" />
     <Compile Include="service\CidadeService.cs" />
     <Compile Include="service\FichaService.cs" />
+    <Compile Include="service\LavagemService.cs" />
     <Compile Include="service\LavanderiaService.cs" />
     <Compile Include="utils\Geral.cs" />
     <Compile Include="view\cadastros\CadCidade.cs">
