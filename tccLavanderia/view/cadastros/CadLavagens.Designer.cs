@@ -34,11 +34,7 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbLavanderia = new System.Windows.Forms.ComboBox();
             this.txtProcesso = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -95,11 +91,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtValor);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbLavanderia);
             this.groupBox1.Controls.Add(this.txtProcesso);
-            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtCod);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -109,50 +101,13 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
-            // txtValor
-            // 
-            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(10, 128);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(340, 26);
-            this.txtValor.TabIndex = 41;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "VALOR";
-            // 
-            // cbLavanderia
-            // 
-            this.cbLavanderia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLavanderia.FormattingEnabled = true;
-            this.cbLavanderia.Location = new System.Drawing.Point(360, 74);
-            this.cbLavanderia.Name = "cbLavanderia";
-            this.cbLavanderia.Size = new System.Drawing.Size(394, 28);
-            this.cbLavanderia.TabIndex = 39;
-            // 
             // txtProcesso
             // 
             this.txtProcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProcesso.Location = new System.Drawing.Point(10, 76);
             this.txtProcesso.Name = "txtProcesso";
-            this.txtProcesso.Size = new System.Drawing.Size(340, 26);
+            this.txtProcesso.Size = new System.Drawing.Size(744, 26);
             this.txtProcesso.TabIndex = 27;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(356, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 20);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "LAVANDERIA";
             // 
             // txtCod
             // 
@@ -230,9 +185,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProcesso;
-        private System.Windows.Forms.TextBox txtValor;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbLavanderia;
-        private System.Windows.Forms.Label label10;
     }
 }

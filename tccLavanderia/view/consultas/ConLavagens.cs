@@ -15,7 +15,7 @@ namespace tccLavanderia.view
     public partial class ConLavagens : Form
     {
         private CadLavagens cadLavagem;
-        private LavagemService lavagemService;
+        private LavagemService lavagemService = new LavagemService();
         private Lavagem lavagem = new Lavagem();
 
         public ConLavagens()
@@ -35,13 +35,13 @@ namespace tccLavanderia.view
             int edit = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
             lavagem = lavagemService.consultarId(edit);
-            cadLavagem = new CadLavagens(cadLavagem);
+            cadLavagem = new CadLavagens(lavagem);
             cadLavagem.ShowDialog();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = lavagemService.pesquisar(txtProcesso.Text);
+            dataGridView1.DataSource = lavagemService.pesquisar(txtCodigo.Text, txtProcesso.Text);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace tccLavanderia.view
 
         private void caregarDataGrid()
         {
-            dataGridView1.DataSource = lavagemService.pesquisar(null);
+            dataGridView1.DataSource = lavagemService.pesquisar(null,null);
         }
     }
 }

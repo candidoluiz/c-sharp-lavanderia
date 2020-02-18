@@ -25,13 +25,17 @@ namespace tccLavanderia.service
             return lavagemDao.excluir(lavagem);
         }
 
-        public DataTable pesquisar(string pesquisa)
+        public DataTable pesquisar(string id, string pesquisa)
         {
             if (pesquisa == "")
             {
                 pesquisa = null;
             }
-            return lavagemDao.pesquisar(pesquisa);
+            if (id == "")
+            {
+                id = null;
+            }
+            return lavagemDao.pesquisar(id, pesquisa);
         }
 
         public Lavagem consultarId(int id)

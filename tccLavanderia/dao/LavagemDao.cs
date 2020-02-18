@@ -28,7 +28,7 @@ namespace tccLavanderia.dao
                 con.conectar();
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@nome", lavagem.processo);
+                cmd.Parameters.AddWithValue("@processo", lavagem.processo);
                 cmd.ExecuteNonQuery();
                 con.desconectar();
             }
@@ -83,11 +83,16 @@ namespace tccLavanderia.dao
             return true;
         }
 
-        public DataTable pesquisar(string nome)
+        public DataTable pesquisar(string id, string nome)
         {
             string valor = "%" + nome + "%";
 
-            sql = "select * from lavagem c where @processo is null or c.nome like @nome";
+            sql = "select l.id Cod, l.processo Processo from lavagem l " +
+                    "where " +
+                    "(@id  is null or l.id = @id) "+
+                    "AND " +
+                "(@nome is null or l.processo like @nome)";
+
 
             try
             {
@@ -95,7 +100,8 @@ namespace tccLavanderia.dao
                 con.conectar();
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@processo", valor);
+                cmd.Parameters.AddWithValue("@nome", valor);
+                cmd.Parameters.AddWithValue("@id", id);
                 dt.Load(cmd.ExecuteReader());
                 con.desconectar();
                 return dt;
