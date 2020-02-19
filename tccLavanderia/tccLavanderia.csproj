@@ -85,6 +85,7 @@
     <Compile Include="service\FichaService.cs" />
     <Compile Include="service\LavagemService.cs" />
     <Compile Include="service\LavanderiaService.cs" />
+    <Compile Include="service\TecidoService.cs" />
     <Compile Include="utils\Geral.cs" />
     <Compile Include="view\cadastros\CadCidade.cs">
       <SubType>Form</SubType>
