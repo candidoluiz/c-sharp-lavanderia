@@ -15,5 +15,15 @@ namespace tccLavanderia.utils
             else
                 return id.ToString();
         }
+
+        public static int altura()
+        {
+            return 700;
+        }
+
+        public static int largura()
+        {
+            return 1280;
+        }
     }
 }

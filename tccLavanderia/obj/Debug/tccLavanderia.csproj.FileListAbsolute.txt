@@ -64,3 +64,5 @@ C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.view.
 C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.view.ConValorLavagens.resources
 C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.Form1.resources
 C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.csproj.GenerateResource.Cache
+C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.view.cadastros.CadEmpresa.resources
+C:\Users\Luiz\Documents\c-Lavanderia\tccLavanderia\obj\Debug\tccLavanderia.view.consultas.ComEmpresa.resources
