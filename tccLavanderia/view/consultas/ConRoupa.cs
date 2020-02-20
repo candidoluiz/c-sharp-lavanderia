@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using tccLavanderia.model;
+using tccLavanderia.utils;
 
 namespace tccLavanderia.view
 {
@@ -17,6 +18,7 @@ namespace tccLavanderia.view
         {
             InitializeComponent();
             carregarColecao();
+            this.Size = new Size(Geral.largura(),Geral.altura());
         }
 
         private void carregarColecao()

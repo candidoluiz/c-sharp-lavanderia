@@ -71,6 +71,7 @@
     <Compile Include="dao\CidadeDao.cs" />
     <Compile Include="dao\LavagemDao.cs" />
     <Compile Include="dao\LavanderiaDao.cs" />
+    <Compile Include="dao\RoupaDao.cs" />
     <Compile Include="dao\TecidoDao.cs" />
     <Compile Include="model\Cidade.cs" />
     <Compile Include="model\Estacao.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="model\Lavagem.cs" />
     <Compile Include="model\Lavanderia.cs" />
     <Compile Include="model\Roupa.cs" />
+    <Compile Include="model\RoupaLavagem.cs" />
     <Compile Include="model\Tecido.cs" />
     <Compile Include="model\ValorLavagem.cs" />
     <Compile Include="repository\ConnectionFactory.cs" />
