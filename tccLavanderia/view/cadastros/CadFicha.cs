@@ -28,7 +28,6 @@ namespace tccLavanderia.view
             txtComposicao.Text = ficha.roupa.tecido.composicao;
             txtLavanderia.Text = ficha.lavanderia.nome;
             txtTecido.Text = ficha.roupa.tecido.nome;
-            txtTipo.Text = ficha.roupa.tipo;
         }
 
 

@@ -63,7 +63,7 @@
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -116,7 +116,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(190, 50);
+            this.label2.Location = new System.Drawing.Point(430, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(405, 37);
             this.label2.TabIndex = 4;
@@ -134,7 +134,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(10, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(764, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1242, 100);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -218,16 +218,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 274);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 220);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(764, 276);
+            this.dataGridView1.Size = new System.Drawing.Size(1242, 430);
             this.dataGridView1.TabIndex = 16;
             // 
             // ConValorLavagens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);

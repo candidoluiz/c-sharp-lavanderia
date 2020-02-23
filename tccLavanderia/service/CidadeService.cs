@@ -39,11 +39,6 @@ namespace tccLavanderia.service
             return cidadeDao.pesquisar(pesquisa);
         }
 
-        public DataTable listarTudo()
-        {
-            return cidadeDao.listarTudo();
-        }
-
         public Cidade consultarId(int id)
         {
             return cidadeDao.consultarId(id);

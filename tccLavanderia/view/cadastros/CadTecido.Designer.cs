@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtComposicao = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.MaskedTextBox();
@@ -41,7 +42,6 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSair = new System.Windows.Forms.ToolStripButton();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,18 @@
             this.groupBox1.Size = new System.Drawing.Size(1242, 394);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(60, 13);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(65, 26);
+            this.txtId.TabIndex = 24;
+            this.txtId.TabStop = false;
             // 
             // txtComposicao
             // 
@@ -137,7 +149,7 @@
             this.btnSalvar.Image = global::tccLavanderia.Properties.Resources.disk;
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(60, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(62, 39);
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -174,23 +186,11 @@
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(60, 13);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(65, 26);
-            this.txtId.TabIndex = 24;
-            this.txtId.TabStop = false;
-            // 
             // CadTecido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 749);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

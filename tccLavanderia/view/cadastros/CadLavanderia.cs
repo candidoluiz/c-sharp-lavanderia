@@ -12,11 +12,11 @@ namespace tccLavanderia.view
         private Lavanderia lavanderia;
         private CidadeService cidadeService = new CidadeService();
         private Cidade cidade;  
-        public CadLavanderia(Lavanderia lavaneria)
+        public CadLavanderia(Lavanderia lavanderia)
         {
             InitializeComponent();
             carregarUf();
-            this.lavanderia = lavaneria;
+            this.lavanderia = lavanderia;
             cbUf.SelectedIndex = -1;
             carregarCampos();
             desabilitarExcluir();
@@ -121,8 +121,7 @@ namespace tccLavanderia.view
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            //this.Dispose();
-            MessageBox.Show(cbCidade.SelectedValue.ToString());
+            this.Dispose();
         }
 
         private void cbUf_SelectedIndexChanged(object sender, EventArgs e)

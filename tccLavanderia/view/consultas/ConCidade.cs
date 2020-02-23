@@ -51,7 +51,7 @@ namespace tccLavanderia.view
 
         private void caregarDataGrid()
         {
-            dataGridView1.DataSource = cidadeService.listarTudo();
+            dataGridView1.DataSource = cidadeService.pesquisar(null);
         }
     }
 }

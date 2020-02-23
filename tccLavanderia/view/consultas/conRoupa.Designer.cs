@@ -45,7 +45,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbTecido = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 50);
+            this.label2.Location = new System.Drawing.Point(446, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(372, 37);
             this.label2.TabIndex = 2;
@@ -134,10 +134,10 @@
             this.toolStripSeparator2,
             this.btnPesquisar,
             this.toolStripSeparator3,
-            this.toolStripButton1});
+            this.btnSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(984, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -163,7 +163,7 @@
             this.btnEditar.Image = global::tccLavanderia.Properties.Resources.pencil;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(57, 39);
+            this.btnEditar.Size = new System.Drawing.Size(58, 39);
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -187,18 +187,20 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 42);
             // 
-            // toolStripButton1
+            // btnSair
             // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.toolStripButton1.Image = global::tccLavanderia.Properties.Resources.door_out;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(41, 39);
-            this.toolStripButton1.Text = "SAIR";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(41, 39);
+            this.btnSair.Text = "SAIR";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cbTecido);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cbColecao);
@@ -209,7 +211,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(10, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(764, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1242, 100);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -220,7 +222,7 @@
             this.cbTecido.FormattingEnabled = true;
             this.cbTecido.Location = new System.Drawing.Point(523, 37);
             this.cbTecido.Name = "cbTecido";
-            this.cbTecido.Size = new System.Drawing.Size(136, 28);
+            this.cbTecido.Size = new System.Drawing.Size(285, 28);
             this.cbTecido.TabIndex = 14;
             // 
             // label5
@@ -255,7 +257,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 206);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 220);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -268,13 +270,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(962, 443);
+            this.dataGridView1.Size = new System.Drawing.Size(1242, 430);
             this.dataGridView1.TabIndex = 24;
             // 
             // ConRoupa
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -312,7 +314,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbTecido;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnSair;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

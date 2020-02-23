@@ -85,30 +85,11 @@ namespace tccLavanderia.dao
             return true;
         }
 
-        public DataTable listarTudo()
-        {
-            sql = "select * from cidade";
-
-            try
-            {
-                dt = new DataTable();
-                con.conectar();
-                dt = con.retDataTable(sql);
-                con.desconectar();
-                return dt;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public DataTable pesquisar(string nome)
         {
             string valor = "%" + nome + "%";
 
-            sql = "select * from cidade c where @nome is null or c.nome like @nome";
+            sql = "select c.id Cod, c.nome Cidade, c.uf Estado from cidade c where @nome is null or Nome like @nome";
 
             try
             {

@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using tccLavanderia.view;
-using MySql.Data.MySqlClient;
-using tccLavanderia.repository;
-using tccLavanderia.model;
+using tccLavanderia.view.consultas;
 
 namespace tccLavanderia
 {
@@ -23,6 +14,7 @@ namespace tccLavanderia
         ConValorLavagens conValorLavagens;
         ConCidade conCidade;
         ConTecido conTecido;
+        ConTipo conTipo;
 
         public Form1()
         {
@@ -69,6 +61,12 @@ namespace tccLavanderia
         {
             conTecido = new ConTecido();
             conTecido.ShowDialog();
+        }
+
+        private void btnTipoRoupa_Click(object sender, EventArgs e)
+        {
+            conTipo = new ConTipo();
+            conTipo.ShowDialog();
         }
     }
 }

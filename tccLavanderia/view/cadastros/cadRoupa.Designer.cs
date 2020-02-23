@@ -34,21 +34,19 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbTecido = new System.Windows.Forms.ComboBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbColecao = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtAno = new System.Windows.Forms.MaskedTextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,9 +71,10 @@
             this.btnSalvar.Image = global::tccLavanderia.Properties.Resources.disk;
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(60, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(62, 39);
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -91,6 +90,7 @@
             this.btnExcluir.Size = new System.Drawing.Size(66, 39);
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // toolStripSeparator2
             // 
@@ -99,15 +99,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.cbTecido);
+            this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbColecao);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.txtAno);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -117,22 +117,22 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
-            // comboBox1
+            // cbTecido
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(225, 28);
-            this.comboBox1.TabIndex = 22;
+            this.cbTecido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTecido.FormattingEnabled = true;
+            this.cbTecido.Location = new System.Drawing.Point(10, 128);
+            this.cbTecido.Name = "cbTecido";
+            this.cbTecido.Size = new System.Drawing.Size(225, 28);
+            this.cbTecido.TabIndex = 22;
             // 
-            // textBox2
+            // txtModelo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(245, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(513, 26);
-            this.textBox2.TabIndex = 0;
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(245, 130);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(513, 26);
+            this.txtModelo.TabIndex = 0;
             // 
             // label2
             // 
@@ -144,14 +144,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "MODELO";
             // 
-            // comboBox2
+            // cbColecao
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(241, 74);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(310, 28);
-            this.comboBox2.TabIndex = 3;
+            this.cbColecao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbColecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbColecao.FormattingEnabled = true;
+            this.cbColecao.Location = new System.Drawing.Point(241, 74);
+            this.cbColecao.Name = "cbColecao";
+            this.cbColecao.Size = new System.Drawing.Size(310, 28);
+            this.cbColecao.TabIndex = 3;
             // 
             // label8
             // 
@@ -173,13 +174,13 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "ESTAÇÃO";
             // 
-            // textBox3
+            // txtTipo
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(557, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(201, 26);
-            this.textBox3.TabIndex = 18;
+            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipo.Location = new System.Drawing.Point(557, 76);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(201, 26);
+            this.txtTipo.TabIndex = 18;
             // 
             // label7
             // 
@@ -191,13 +192,13 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "TIPO";
             // 
-            // maskedTextBox2
+            // txtAno
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(10, 76);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(225, 26);
-            this.maskedTextBox2.TabIndex = 12;
+            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAno.Location = new System.Drawing.Point(10, 76);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(225, 26);
+            this.txtAno.TabIndex = 12;
             // 
             // txtId
             // 
@@ -241,35 +242,11 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "CADASTRO DE ROUPAS";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(659, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "COD";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(709, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(65, 26);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.TabStop = false;
-            // 
             // CadRoupa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -291,21 +268,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.ComboBox cbColecao;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.MaskedTextBox txtAno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTecido;
         private System.Windows.Forms.Label label8;
     }
 }

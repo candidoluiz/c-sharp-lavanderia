@@ -73,6 +73,7 @@
     <Compile Include="dao\LavanderiaDao.cs" />
     <Compile Include="dao\RoupaDao.cs" />
     <Compile Include="dao\TecidoDao.cs" />
+    <Compile Include="dao\TipoDao.cs" />
     <Compile Include="model\Cidade.cs" />
     <Compile Include="model\Estacao.cs" />
     <Compile Include="model\Ficha.cs" />
@@ -81,13 +82,16 @@
     <Compile Include="model\Roupa.cs" />
     <Compile Include="model\RoupaLavagem.cs" />
     <Compile Include="model\Tecido.cs" />
+    <Compile Include="model\Tipo.cs" />
     <Compile Include="model\ValorLavagem.cs" />
     <Compile Include="repository\ConnectionFactory.cs" />
     <Compile Include="service\CidadeService.cs" />
     <Compile Include="service\FichaService.cs" />
     <Compile Include="service\LavagemService.cs" />
     <Compile Include="service\LavanderiaService.cs" />
+    <Compile Include="service\RoupaService.cs" />
     <Compile Include="service\TecidoService.cs" />
+    <Compile Include="service\TipoService.cs" />
     <Compile Include="utils\Geral.cs" />
     <Compile Include="view\cadastros\CadCidade.cs">
       <SubType>Form</SubType>
@@ -131,6 +135,12 @@
     <Compile Include="view\cadastros\CadTecido.Designer.cs">
       <DependentUpon>CadTecido.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\cadastros\CadTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\cadastros\CadTipo.Designer.cs">
+      <DependentUpon>CadTipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\consultas\ComEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +182,12 @@
     </Compile>
     <Compile Include="view\consultas\ConTecido.Designer.cs">
       <DependentUpon>ConTecido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consultas\ConTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consultas\ConTipo.Designer.cs">
+      <DependentUpon>ConTipo.cs</DependentUpon>
     </Compile>
     <Compile Include="view\consultas\ConValorLavagens.cs">
       <SubType>Form</SubType>
@@ -218,6 +234,9 @@
     <EmbeddedResource Include="view\cadastros\CadTecido.resx">
       <DependentUpon>CadTecido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\cadastros\CadTipo.resx">
+      <DependentUpon>CadTipo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\consultas\ComEmpresa.resx">
       <DependentUpon>ComEmpresa.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\consultas\ConTecido.resx">
       <DependentUpon>ConTecido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consultas\ConTipo.resx">
+      <DependentUpon>ConTipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\consultas\ConValorLavagens.resx">
       <DependentUpon>ConValorLavagens.cs</DependentUpon>

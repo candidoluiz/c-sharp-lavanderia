@@ -61,7 +61,7 @@
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -125,9 +125,9 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(10, 250);
+            this.dataGridView.Location = new System.Drawing.Point(10, 220);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(764, 300);
+            this.dataGridView.Size = new System.Drawing.Size(1242, 430);
             this.dataGridView.TabIndex = 19;
             // 
             // groupBox1
@@ -204,7 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);

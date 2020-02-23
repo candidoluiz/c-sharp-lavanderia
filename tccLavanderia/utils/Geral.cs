@@ -23,7 +23,7 @@ namespace tccLavanderia.utils
 
         public static int largura()
         {
-            return 1000;
+            return 1280;
         }
     }
 }

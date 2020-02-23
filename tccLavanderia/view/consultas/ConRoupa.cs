@@ -14,6 +14,8 @@ namespace tccLavanderia.view
 {
     public partial class ConRoupa : Form
     {
+        private CadRoupa cadRoupa;
+        private Roupa roupa = new Roupa();
         public ConRoupa()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace tccLavanderia.view
 
         private void carregarColecao()
         {
+            cbColecao.Items.Add(Estacao.vazio);
             cbColecao.Items.Add(Estacao.primavera);
             cbColecao.Items.Add(Estacao.primaveraVerao);
             cbColecao.Items.Add(Estacao.verao);
@@ -33,7 +36,8 @@ namespace tccLavanderia.view
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
+            cadRoupa = new CadRoupa(new Roupa());
+            cadRoupa.ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace tccLavanderia.view
+﻿namespace tccLavanderia.view.consultas
 {
-    partial class ConTecido
+    partial class ConTipo
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,13 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
+            this.txtSair = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtCod = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,11 +61,11 @@
             this.toolStripSeparator2,
             this.btnPesquisar,
             this.toolStripSeparator3,
-            this.btnSair});
+            this.txtSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
-            this.toolStrip1.TabIndex = 14;
+            this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnNovo
@@ -116,75 +116,75 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 42);
             // 
-            // btnSair
+            // txtSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
-            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(41, 39);
-            this.btnSair.Text = "SAIR";
-            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.txtSair.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtSair.Image = global::tccLavanderia.Properties.Resources.door_out;
+            this.txtSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.txtSair.Name = "txtSair";
+            this.txtSair.Size = new System.Drawing.Size(41, 39);
+            this.txtSair.Text = "SAIR";
+            this.txtSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.txtSair.Click += new System.EventHandler(this.txtSair_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(434, 50);
+            this.label1.Location = new System.Drawing.Point(380, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 37);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "CONSULTA DE TECIDOS";
+            this.label1.Size = new System.Drawing.Size(504, 37);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "CONSULTA DE TIPO DE ROUPA";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Controls.Add(this.txtCod);
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(10, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1242, 100);
-            this.groupBox1.TabIndex = 23;
+            this.groupBox1.Size = new System.Drawing.Size(1240, 100);
+            this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(156, 41);
+            this.txtNome.Location = new System.Drawing.Point(148, 37);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(1080, 26);
-            this.txtNome.TabIndex = 12;
+            this.txtNome.Size = new System.Drawing.Size(1086, 26);
+            this.txtNome.TabIndex = 5;
             // 
-            // txtCod
+            // txtId
             // 
-            this.txtCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCod.Location = new System.Drawing.Point(10, 41);
-            this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(136, 26);
-            this.txtCod.TabIndex = 0;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(6, 37);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(136, 26);
+            this.txtId.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 20);
+            this.label2.Location = new System.Drawing.Point(6, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "CODIGO";
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(152, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "NOME";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(148, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "NOME";
             // 
             // dataGridView1
             // 
@@ -222,9 +222,9 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1242, 430);
-            this.dataGridView1.TabIndex = 24;
+            this.dataGridView1.TabIndex = 23;
             // 
-            // ConTecido
+            // ConTipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -234,9 +234,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "ConTecido";
+            this.Name = "ConTipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConTecido";
+            this.Text = "ConTipo";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -256,13 +256,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnPesquisar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton btnSair;
+        private System.Windows.Forms.ToolStripButton txtSair;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtCod;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

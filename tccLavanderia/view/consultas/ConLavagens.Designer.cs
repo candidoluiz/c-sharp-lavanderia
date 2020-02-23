@@ -90,7 +90,7 @@
             this.btnEditar.Image = global::tccLavanderia.Properties.Resources.pencil;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(57, 39);
+            this.btnEditar.Size = new System.Drawing.Size(58, 39);
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -208,7 +208,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 245);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 220);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -221,14 +221,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1240, 605);
+            this.dataGridView1.Size = new System.Drawing.Size(1242, 430);
             this.dataGridView1.TabIndex = 24;
             // 
             // ConLavagens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 749);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

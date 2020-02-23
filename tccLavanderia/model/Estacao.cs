@@ -8,6 +8,7 @@ namespace tccLavanderia.model
 {
     public  class Estacao
     {
+        public static string vazio = "";
         public static string primavera = "PRIMAVERA";
         public static string primaveraVerao = "PRIMAVERA/VERÃO";
         public static string verao = "VERÃO";

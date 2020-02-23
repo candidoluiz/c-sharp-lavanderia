@@ -40,9 +40,10 @@ namespace tccLavanderia
             this.btnLavanderia = new System.Windows.Forms.ToolStripMenuItem();
             this.btnValorLavagem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCidade = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTecido = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTecido = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTipoRoupa = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,8 @@ namespace tccLavanderia
             this.btnLavanderia,
             this.btnValorLavagem,
             this.btnCidade,
-            this.btnTecido});
+            this.btnTecido,
+            this.btnTipoRoupa});
             this.toolStripDropDownButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -129,6 +131,13 @@ namespace tccLavanderia
             this.btnCidade.Text = "Cidade";
             this.btnCidade.Click += new System.EventHandler(this.btnCidade_Click);
             // 
+            // btnTecido
+            // 
+            this.btnTecido.Name = "btnTecido";
+            this.btnTecido.Size = new System.Drawing.Size(203, 24);
+            this.btnTecido.Text = "Tecido";
+            this.btnTecido.Click += new System.EventHandler(this.btnTecido_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -146,12 +155,12 @@ namespace tccLavanderia
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnTecido
+            // btnTipoRoupa
             // 
-            this.btnTecido.Name = "btnTecido";
-            this.btnTecido.Size = new System.Drawing.Size(203, 24);
-            this.btnTecido.Text = "Tecido";
-            this.btnTecido.Click += new System.EventHandler(this.btnTecido_Click);
+            this.btnTipoRoupa.Name = "btnTipoRoupa";
+            this.btnTipoRoupa.Size = new System.Drawing.Size(203, 24);
+            this.btnTipoRoupa.Text = "Tipo de Roupa";
+            this.btnTipoRoupa.Click += new System.EventHandler(this.btnTipoRoupa_Click);
             // 
             // Form1
             // 
@@ -187,6 +196,7 @@ namespace tccLavanderia
         private System.Windows.Forms.ToolStripButton btnFicha;
         private System.Windows.Forms.ToolStripMenuItem btnCidade;
         private System.Windows.Forms.ToolStripMenuItem btnTecido;
+        private System.Windows.Forms.ToolStripMenuItem btnTipoRoupa;
     }
 }
 
