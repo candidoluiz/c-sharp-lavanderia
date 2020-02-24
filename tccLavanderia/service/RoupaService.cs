@@ -24,5 +24,10 @@ namespace tccLavanderia.service
             }
 
         }
+
+        public bool excluir(Roupa roupa)
+        {
+            return roupaDao.excluir(roupa);
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace tccLavanderia.view
         Roupa roupa;
         RoupaService roupaService = new RoupaService();
         TecidoService tecidoService = new TecidoService();
+        TipoService tipoService = new TipoService();
+        LavagemService lavagemSerice = new LavagemService();
         Tecido tecido;
 
         public CadRoupa(Roupa roupa)
@@ -19,7 +21,7 @@ namespace tccLavanderia.view
             this.roupa = roupa;
             this.carregarColecao();
             this.desabilitarExcluir();
-            carregarTecido();
+            this.carregarCombos();
         }
 
         private void carregarColecao()
@@ -37,16 +39,23 @@ namespace tccLavanderia.view
         {
             txtAno.Text = roupa.ano;
             txtModelo.Text = roupa.modelo;
-            //txtTipo.Text = roupa.tipo;
             txtId.Text = Geral.removerZero(roupa.id);
 
         }
 
-        private void carregarTecido()
+        private void carregarCombos()
         {
             cbTecido.DisplayMember = "nome";
             cbTecido.ValueMember = "cod";
             cbTecido.DataSource = tecidoService.pesquisar(null, null);
+
+            cbTipo.DisplayMember = "tipo";
+            cbTipo.ValueMember = "cod";
+            cbTipo.DataSource = tipoService.pesquisar(null, null);
+
+            lbProcesso.DisplayMember = "processo";
+            lbProcesso.ValueMember = "cod";
+            lbProcesso.DataSource = lavagemSerice.pesquisar(null,null);
         }
 
         private void desabilitarExcluir()
@@ -66,7 +75,11 @@ namespace tccLavanderia.view
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Deseja realmente excluir o modelo de roupa " + roupa.modelo + " ?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                roupaService.excluir(roupa);
+                this.Dispose();
+            }
         }
     }
 }

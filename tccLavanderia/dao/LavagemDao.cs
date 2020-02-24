@@ -50,7 +50,7 @@ namespace tccLavanderia.dao
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", lavagem.id);
-                cmd.Parameters.AddWithValue("@lavagem", lavagem.processo);
+                cmd.Parameters.AddWithValue("@processo", lavagem.processo);
                 cmd.ExecuteNonQuery();
                 con.desconectar();
             }
@@ -91,7 +91,7 @@ namespace tccLavanderia.dao
                     "where " +
                     "(@id  is null or l.id = @id) "+
                     "AND " +
-                "(@nome is null or l.processo like @nome)";
+                "(@nome is null or l.processo like @nome) order by l.processo";
 
 
             try
@@ -115,7 +115,7 @@ namespace tccLavanderia.dao
 
         public Lavagem consultarId(int id)
         {
-            sql = "select * from lavagem c where c.id = @id";
+            sql = "select * from lavagem l where l.id = @id";
 
             try
             {
@@ -128,7 +128,7 @@ namespace tccLavanderia.dao
                 {
                     lavagem = new Lavagem();
                     lavagem.id = Int16.Parse(dr["id"].ToString());
-                    lavagem.processo = dr["nome"].ToString();
+                    lavagem.processo = dr["processo"].ToString();
                 }
                 return lavagem;
             }

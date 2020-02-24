@@ -34,19 +34,23 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.cbTecido = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbColecao = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAno = new System.Windows.Forms.MaskedTextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbProcesso = new System.Windows.Forms.ListBox();
+            this.lblProcessoAdicionados = new System.Windows.Forms.ListBox();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,13 +103,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbTipo);
             this.groupBox1.Controls.Add(this.cbTecido);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbColecao);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtAno);
             this.groupBox1.Controls.Add(this.txtId);
@@ -113,12 +117,23 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(10, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(764, 196);
+            this.groupBox1.Size = new System.Drawing.Size(962, 196);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
+            // cbTipo
+            // 
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(557, 74);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(399, 28);
+            this.cbTipo.TabIndex = 23;
+            // 
             // cbTecido
             // 
+            this.cbTecido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTecido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTecido.FormattingEnabled = true;
             this.cbTecido.Location = new System.Drawing.Point(10, 128);
@@ -131,7 +146,7 @@
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.Location = new System.Drawing.Point(245, 130);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(513, 26);
+            this.txtModelo.Size = new System.Drawing.Size(711, 26);
             this.txtModelo.TabIndex = 0;
             // 
             // label2
@@ -173,14 +188,6 @@
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 4;
             this.label6.Text = "ESTAÇÃO";
-            // 
-            // txtTipo
-            // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(557, 76);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(201, 26);
-            this.txtTipo.TabIndex = 18;
             // 
             // label7
             // 
@@ -236,22 +243,67 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(197, 37);
+            this.label1.Location = new System.Drawing.Point(307, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(391, 37);
+            this.label1.Size = new System.Drawing.Size(370, 37);
             this.label1.TabIndex = 17;
-            this.label1.Text = "CADASTRO DE ROUPAS";
+            this.label1.Text = "CADASTRO DE ROUPA";
+            // 
+            // lbProcesso
+            // 
+            this.lbProcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcesso.FormattingEnabled = true;
+            this.lbProcesso.ItemHeight = 20;
+            this.lbProcesso.Location = new System.Drawing.Point(567, 374);
+            this.lbProcesso.Name = "lbProcesso";
+            this.lbProcesso.Size = new System.Drawing.Size(207, 284);
+            this.lbProcesso.TabIndex = 18;
+            // 
+            // lblProcessoAdicionados
+            // 
+            this.lblProcessoAdicionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProcessoAdicionados.FormattingEnabled = true;
+            this.lblProcessoAdicionados.ItemHeight = 20;
+            this.lblProcessoAdicionados.Location = new System.Drawing.Point(158, 374);
+            this.lblProcessoAdicionados.Name = "lblProcessoAdicionados";
+            this.lblProcessoAdicionados.Size = new System.Drawing.Size(207, 284);
+            this.lblProcessoAdicionados.TabIndex = 19;
+            // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.Location = new System.Drawing.Point(405, 422);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(139, 38);
+            this.btnAdicionar.TabIndex = 20;
+            this.btnAdicionar.Text = "<- ADICIONAR";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.Location = new System.Drawing.Point(405, 525);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(139, 38);
+            this.btnRemover.TabIndex = 21;
+            this.btnRemover.Text = "REMOVER ->";
+            this.btnRemover.UseVisualStyleBackColor = true;
             // 
             // CadRoupa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 666);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnAdicionar);
+            this.Controls.Add(this.lblProcessoAdicionados);
+            this.Controls.Add(this.lbProcesso);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CadRoupa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadRoupa";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -278,9 +330,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbTecido;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.ListBox lbProcesso;
+        private System.Windows.Forms.ListBox lblProcessoAdicionados;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnRemover;
     }
 }

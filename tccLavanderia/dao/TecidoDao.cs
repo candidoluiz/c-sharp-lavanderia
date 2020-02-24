@@ -90,7 +90,7 @@ namespace tccLavanderia.dao
                     "where " +
                     "(@id  is null or t.id = @id) " +
                     "AND " +
-                    "(@nome is null or t.nome like @nome) ";
+                    "(@nome is null or t.nome like @nome) order by t.nome ";
 
 
             try
