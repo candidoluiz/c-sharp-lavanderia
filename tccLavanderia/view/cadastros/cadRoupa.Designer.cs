@@ -48,7 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbProcesso = new System.Windows.Forms.ListBox();
-            this.lblProcessoAdicionados = new System.Windows.Forms.ListBox();
+            this.lbProcessoAdicionados = new System.Windows.Forms.ListBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
@@ -259,15 +259,15 @@
             this.lbProcesso.Size = new System.Drawing.Size(207, 284);
             this.lbProcesso.TabIndex = 18;
             // 
-            // lblProcessoAdicionados
+            // lbProcessoAdicionados
             // 
-            this.lblProcessoAdicionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProcessoAdicionados.FormattingEnabled = true;
-            this.lblProcessoAdicionados.ItemHeight = 20;
-            this.lblProcessoAdicionados.Location = new System.Drawing.Point(158, 374);
-            this.lblProcessoAdicionados.Name = "lblProcessoAdicionados";
-            this.lblProcessoAdicionados.Size = new System.Drawing.Size(207, 284);
-            this.lblProcessoAdicionados.TabIndex = 19;
+            this.lbProcessoAdicionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProcessoAdicionados.FormattingEnabled = true;
+            this.lbProcessoAdicionados.ItemHeight = 20;
+            this.lbProcessoAdicionados.Location = new System.Drawing.Point(158, 374);
+            this.lbProcessoAdicionados.Name = "lbProcessoAdicionados";
+            this.lbProcessoAdicionados.Size = new System.Drawing.Size(207, 284);
+            this.lbProcessoAdicionados.TabIndex = 19;
             // 
             // btnAdicionar
             // 
@@ -278,6 +278,7 @@
             this.btnAdicionar.TabIndex = 20;
             this.btnAdicionar.Text = "<- ADICIONAR";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnRemover
             // 
@@ -288,6 +289,7 @@
             this.btnRemover.TabIndex = 21;
             this.btnRemover.Text = "REMOVER ->";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // CadRoupa
             // 
@@ -296,7 +298,7 @@
             this.ClientSize = new System.Drawing.Size(984, 666);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.lblProcessoAdicionados);
+            this.Controls.Add(this.lbProcessoAdicionados);
             this.Controls.Add(this.lbProcesso);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -335,7 +337,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.ListBox lbProcesso;
-        private System.Windows.Forms.ListBox lblProcessoAdicionados;
+        private System.Windows.Forms.ListBox lbProcessoAdicionados;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnRemover;
     }

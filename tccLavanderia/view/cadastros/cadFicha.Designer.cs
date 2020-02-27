@@ -56,11 +56,15 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbAno = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbColecao = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbModelo = new System.Windows.Forms.ComboBox();
+            this.txtQuantidade = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.txtColecao = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,7 +82,7 @@
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -154,7 +158,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(96, 50);
+            this.label2.Location = new System.Drawing.Point(336, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(593, 37);
             this.label2.TabIndex = 16;
@@ -162,25 +166,24 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtQuantidade);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.lblValor);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.listBox);
-            this.groupBox1.Controls.Add(this.btnConfirmar);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.cbLavanderia);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cbAno);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbColecao);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cbLavanderia);
             this.groupBox1.Controls.Add(this.cbModelo);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(10, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(760, 460);
+            this.groupBox1.Size = new System.Drawing.Size(1242, 526);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
@@ -188,7 +191,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(73, 256);
+            this.label13.Location = new System.Drawing.Point(69, 268);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(220, 20);
             this.label13.TabIndex = 30;
@@ -199,7 +202,7 @@
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValor.ForeColor = System.Drawing.Color.Red;
-            this.lblValor.Location = new System.Drawing.Point(575, 348);
+            this.lblValor.Location = new System.Drawing.Point(622, 395);
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(33, 24);
             this.lblValor.TabIndex = 34;
@@ -209,7 +212,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(477, 344);
+            this.label11.Location = new System.Drawing.Point(524, 393);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 29);
             this.label11.TabIndex = 33;
@@ -217,15 +220,17 @@
             // 
             // listBox
             // 
+            this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 20;
             this.listBox.Items.AddRange(new object[] {
             "TESTE",
             "SSSDS",
             "DFRGFGE",
             "GDFTGSTGT"});
-            this.listBox.Location = new System.Drawing.Point(10, 279);
+            this.listBox.Location = new System.Drawing.Point(6, 295);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(347, 173);
+            this.listBox.Size = new System.Drawing.Size(347, 224);
             this.listBox.TabIndex = 32;
             // 
             // btnConfirmar
@@ -233,7 +238,7 @@
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Image = global::tccLavanderia.Properties.Resources.accept;
             this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmar.Location = new System.Drawing.Point(624, 422);
+            this.btnConfirmar.Location = new System.Drawing.Point(1122, 622);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(130, 32);
             this.btnConfirmar.TabIndex = 5;
@@ -244,7 +249,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(529, 61);
+            this.label9.Location = new System.Drawing.Point(359, 59);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 20);
             this.label9.TabIndex = 30;
@@ -252,15 +257,18 @@
             // 
             // cbLavanderia
             // 
+            this.cbLavanderia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLavanderia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLavanderia.FormattingEnabled = true;
-            this.cbLavanderia.Location = new System.Drawing.Point(529, 84);
+            this.cbLavanderia.Location = new System.Drawing.Point(359, 82);
             this.cbLavanderia.Name = "cbLavanderia";
-            this.cbLavanderia.Size = new System.Drawing.Size(225, 28);
+            this.cbLavanderia.Size = new System.Drawing.Size(385, 28);
             this.cbLavanderia.TabIndex = 4;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtColecao);
+            this.groupBox2.Controls.Add(this.txtAno);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtLavanderia);
             this.groupBox2.Controls.Add(this.txtTecido);
@@ -269,9 +277,11 @@
             this.groupBox2.Controls.Add(this.txtComposicao);
             this.groupBox2.Controls.Add(this.txtTipo);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(6, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(744, 135);
+            this.groupBox2.Size = new System.Drawing.Size(1230, 135);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             // 
@@ -367,45 +377,27 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 61);
+            this.label5.Location = new System.Drawing.Point(744, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 21;
             this.label5.Text = "ANO";
             // 
-            // cbAno
-            // 
-            this.cbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAno.FormattingEnabled = true;
-            this.cbAno.Location = new System.Drawing.Point(10, 84);
-            this.cbAno.Name = "cbAno";
-            this.cbAno.Size = new System.Drawing.Size(121, 28);
-            this.cbAno.TabIndex = 1;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(133, 61);
+            this.label4.Location = new System.Drawing.Point(744, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 19;
             this.label4.Text = "COLEÇÃO";
             // 
-            // cbColecao
-            // 
-            this.cbColecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbColecao.FormattingEnabled = true;
-            this.cbColecao.Location = new System.Drawing.Point(137, 84);
-            this.cbColecao.Name = "cbColecao";
-            this.cbColecao.Size = new System.Drawing.Size(180, 28);
-            this.cbColecao.TabIndex = 2;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(323, 61);
+            this.label1.Location = new System.Drawing.Point(6, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 17;
@@ -415,19 +407,86 @@
             // 
             this.cbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbModelo.FormattingEnabled = true;
-            this.cbModelo.Location = new System.Drawing.Point(323, 84);
+            this.cbModelo.Location = new System.Drawing.Point(6, 84);
             this.cbModelo.Name = "cbModelo";
             this.cbModelo.Size = new System.Drawing.Size(200, 28);
             this.cbModelo.TabIndex = 3;
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtQuantidade.Enabled = false;
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidade.Location = new System.Drawing.Point(212, 84);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.ReadOnly = true;
+            this.txtQuantidade.Size = new System.Drawing.Size(141, 26);
+            this.txtQuantidade.TabIndex = 35;
+            this.txtQuantidade.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(212, 61);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 20);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "QUANTIDADE";
+            // 
+            // txtAno
+            // 
+            this.txtAno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAno.Enabled = false;
+            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAno.Location = new System.Drawing.Point(744, 39);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.ReadOnly = true;
+            this.txtAno.Size = new System.Drawing.Size(224, 26);
+            this.txtAno.TabIndex = 30;
+            this.txtAno.TabStop = false;
+            // 
+            // txtColecao
+            // 
+            this.txtColecao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtColecao.Enabled = false;
+            this.txtColecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtColecao.Location = new System.Drawing.Point(744, 91);
+            this.txtColecao.Name = "txtColecao";
+            this.txtColecao.ReadOnly = true;
+            this.txtColecao.Size = new System.Drawing.Size(224, 26);
+            this.txtColecao.TabIndex = 31;
+            this.txtColecao.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(754, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "EMPRESA";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(754, 82);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(220, 28);
+            this.comboBox1.TabIndex = 37;
             // 
             // CadFicha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1264, 666);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.btnConfirmar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CadFicha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -459,9 +518,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbModelo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbAno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbColecao;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTecido;
         private System.Windows.Forms.Label label7;
@@ -478,5 +535,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtQuantidade;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtColecao;
+        private System.Windows.Forms.TextBox txtAno;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

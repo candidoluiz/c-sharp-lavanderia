@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using tccLavanderia.model;
+using tccLavanderia.service;
 using tccLavanderia.utils;
 
 namespace tccLavanderia.view
@@ -16,22 +11,29 @@ namespace tccLavanderia.view
     {
         private CadRoupa cadRoupa;
         private Roupa roupa = new Roupa();
+        TipoService tipoService = new TipoService();
+        RoupaService roupaService = new RoupaService();
         public ConRoupa()
         {
             InitializeComponent();
-            carregarColecao();
+            carregarCombo();
+            caregarDataGrid();
             this.Size = new Size(Geral.largura(),Geral.altura());
         }
 
-        private void carregarColecao()
+        private void carregarCombo()
         {
-            cbColecao.Items.Add(Estacao.vazio);
+            cbColecao.Items.Add(Estacao.nada);
             cbColecao.Items.Add(Estacao.primavera);
             cbColecao.Items.Add(Estacao.primaveraVerao);
             cbColecao.Items.Add(Estacao.verao);
             cbColecao.Items.Add(Estacao.outono);
             cbColecao.Items.Add(Estacao.outonoInverno);
             cbColecao.Items.Add(Estacao.inverno);
+
+            cbTipo.DisplayMember = "tipo";
+            cbTipo.ValueMember = "cod";
+            cbTipo.DataSource = tipoService.pesquisar(null, null);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -39,5 +41,12 @@ namespace tccLavanderia.view
             cadRoupa = new CadRoupa(new Roupa());
             cadRoupa.ShowDialog();
         }
+
+        private void caregarDataGrid()
+        {
+            dataGridView1.DataSource = roupaService.pesquisar(null,null,null,null);
+        }
+
+
     }
 }

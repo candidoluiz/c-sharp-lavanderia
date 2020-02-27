@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tccLavanderia.model
+﻿namespace tccLavanderia.model
 {
     public  class Estacao
     {
-        public static string vazio = "";
+        public static string nada = "";
         public static string primavera = "PRIMAVERA";
         public static string primaveraVerao = "PRIMAVERA/VERÃO";
         public static string verao = "VERÃO";

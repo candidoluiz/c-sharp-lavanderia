@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using tccLavanderia.model;
 using tccLavanderia.repository;
 using tccLavanderia.service;
@@ -14,10 +10,10 @@ namespace tccLavanderia.dao
     public class RoupaDao
     {
         private ConnectionFactory con = new ConnectionFactory();
+        MySqlCommand cmd;
         private DataTable dt;
         private MySqlDataReader dr;
         private Roupa roupa;
-        private RoupaLavagem roupaLavagem;
         private TecidoService tecidoService = new TecidoService();
         private TipoService tipoService = new TipoService();
         private Tecido tecido;
@@ -33,15 +29,18 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@tipo", roupa.tipo.id);
                 cmd.Parameters.AddWithValue("@ano", roupa.ano);
                 cmd.Parameters.AddWithValue("@modelo", roupa.modelo);
                 cmd.Parameters.AddWithValue("@tecido", roupa.tecido.id);
                 cmd.Parameters.AddWithValue("@estacao", roupa.estacao);
-                salvarLavagem(roupa);
                 cmd.ExecuteNonQuery();
+                sql = "select max(r.id) from roupa r";
+                cmd = new MySqlCommand(sql, con.conectar());
+                roupa.id = (int)cmd.ExecuteScalar();
+                salvarLavagem(roupa);
                 con.desconectar();
             }
             catch (Exception)
@@ -59,7 +58,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", roupa.id);
                 cmd.Parameters.AddWithValue("@tipo", roupa.tipo.id);
@@ -83,16 +82,13 @@ namespace tccLavanderia.dao
 
         private void salvarLavagem(Roupa roupa)
         {
-            sql = "insert into roupa_lavagem(roupa_id, lavagem_id) values(@roupa, @lavagem)";
-            MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
-            cmd.CommandText = sql;
+            sql = "insert into roupa_lavagem(roupa_id, lavagem_id) values(@roupa, @lavagem)";       
             foreach (Lavagem lavagem in roupa.lavagens)
             {
-                roupaLavagem = new RoupaLavagem();
-                roupaLavagem.lavagem_id = lavagem.id;
-                roupaLavagem.roupa_id = roupa.id;
-                cmd.Parameters.AddWithValue("@lavagem", roupa.tecido.id);
-                cmd.Parameters.AddWithValue("@roupa", roupa.id);
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@lavagem", lavagem.id);
+                cmd.Parameters.AddWithValue("@roupa", roupa.id);       
                 cmd.ExecuteNonQuery();
             }
         }
@@ -104,7 +100,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -120,21 +116,21 @@ namespace tccLavanderia.dao
         {
             string pTipo = "%" + tipo + "%";
 
-            sql = "select r.modelo Modelo, r.tipo Tipo, r.estacao Estação, r.ano Ano, t.nome Tecido from roupa r inner join tecido t on r.tecido_id = t.id " +
+            sql = "SELECT r.modelo Modelo, t.nome Tipo, r.estacao Estacao, r.ano Ano from roupa r INNER JOIN tipo t ON t.id=r.tipo_id " +
                 "where " +
                 "(@modelo is null or r.modelo = @modelo) " +
                 "AND " +
-                "(@tipo is null or r.tipo like @tipo) " +
+                "(@tipo is null or t.nome like @tipo) " +
                 "AND " +
                 "(@ano is null or r.ano = @ano) " +
                 "AND " +
-                "(@estacao is null or r.estacao = @estacao)";
+                "(@estacao is null or r.estacao = @estacao)"; 
 
             try
             {
                 dt = new DataTable();
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@modelo", modelo);
                 cmd.Parameters.AddWithValue("@tipo", pTipo);
@@ -158,7 +154,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", roupa.id);
                 cmd.ExecuteNonQuery();
@@ -180,7 +176,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
                 dr = cmd.ExecuteReader();
