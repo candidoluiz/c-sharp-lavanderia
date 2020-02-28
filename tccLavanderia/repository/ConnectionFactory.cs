@@ -36,10 +36,10 @@ namespace tccLavanderia.repository
                 con.Open();
                 return con;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                
-                throw;
+                throw e;
             }
         }
 

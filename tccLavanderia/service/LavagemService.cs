@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using tccLavanderia.dao;
 using tccLavanderia.model;
 
@@ -41,6 +42,11 @@ namespace tccLavanderia.service
         public Lavagem consultarId(int id)
         {
             return lavagemDao.consultarId(id);
+        }
+
+        public List<Lavagem> listarLavagem(int id)
+        {
+            return lavagemDao.listarLavagem(id);
         }
     }
 }

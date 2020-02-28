@@ -29,6 +29,7 @@ namespace tccLavanderia.view
             this.desabilitarExcluir();
             this.carregarCombos();
             this.limparCampos();
+            this.carregarCampos();
 
         }
 
@@ -47,6 +48,17 @@ namespace tccLavanderia.view
             txtAno.Text = roupa.ano;
             txtModelo.Text = roupa.modelo;
             txtId.Text = Geral.removerZero(roupa.id);
+            if(!String.IsNullOrWhiteSpace(roupa.tipo.nome))
+                cbTipo.SelectedValue = roupa.tipo.id;
+            if (!String.IsNullOrWhiteSpace(roupa.tecido.nome))
+                cbTecido.SelectedValue = roupa.tecido.id;
+            if (!String.IsNullOrWhiteSpace(roupa.estacao))
+                cbColecao.SelectedItem = roupa.estacao;
+            if (roupa.lavagens.Count > 0)
+                lista = new BindingList<Lavagem>(roupa.lavagens);
+
+            lbProcessoAdicionados.DataSource = lista;
+
 
         }
 

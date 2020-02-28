@@ -47,6 +47,20 @@ namespace tccLavanderia.view
             dataGridView1.DataSource = roupaService.pesquisar(null,null,null,null);
         }
 
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
 
+            dataGridView1.DataSource = roupaService.pesquisar(txtModelo.Text.ToUpper(), cbTipo.Text, txtAno.Text, cbColecao.SelectedItem != null ? cbColecao.SelectedItem.ToString() : "");
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int edit = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+
+            roupa = roupaService.consultarId(edit);
+            cadRoupa = new CadRoupa(roupa);
+            cadRoupa.ShowDialog();
+            caregarDataGrid();
+        }
     }
 }

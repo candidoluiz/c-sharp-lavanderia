@@ -19,6 +19,8 @@ namespace tccLavanderia.model
         public Roupa()
         {
             tecido = new Tecido();
+            tipo = new Tipo();
+            lavagens = new List<Lavagem>();
         }
 
         public Roupa(int id, Tipo tipo, string ano, string modelo, List<Lavagem> lavagens, Tecido tecido, string estacao)

@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using tccLavanderia.model;
 using tccLavanderia.repository;
 
@@ -131,6 +128,34 @@ namespace tccLavanderia.dao
                     lavagem.processo = dr["processo"].ToString();
                 }
                 return lavagem;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<Lavagem> listarLavagem(int id)
+        {
+            sql = "select * from lavagem l inner join roupa_lavagem rl on rl.lavagem_id = l.id where rl.roupa_id = @id";
+            List<Lavagem> lista = new List<Lavagem>();
+
+            try
+            {
+                con.conectar();
+                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    lavagem = new Lavagem();
+                    lavagem.id = Int16.Parse(dr["id"].ToString());
+                    lavagem.processo = dr["processo"].ToString();
+                    lista.Add(lavagem);
+                }
+                return lista;
             }
             catch (Exception)
             {

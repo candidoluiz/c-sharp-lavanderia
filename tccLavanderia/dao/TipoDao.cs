@@ -102,10 +102,10 @@ namespace tccLavanderia.dao
                 con.desconectar();
                 return dt;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                throw e;
             }
         }
 

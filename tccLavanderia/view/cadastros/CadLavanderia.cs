@@ -20,9 +20,7 @@ namespace tccLavanderia.view
             cbUf.SelectedIndex = -1;
             carregarCampos();
             desabilitarExcluir();
-            //cbCidade.Enabled = false;
-           
-           
+           //cbCidade.Enabled = false;        
         }
 
         private void carregarCampos()

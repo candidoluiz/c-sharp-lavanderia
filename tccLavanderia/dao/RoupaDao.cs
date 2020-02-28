@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using tccLavanderia.model;
 using tccLavanderia.repository;
@@ -18,6 +19,8 @@ namespace tccLavanderia.dao
         private TipoService tipoService = new TipoService();
         private Tecido tecido;
         private Tipo tipo;
+        private List<Lavagem> lavagem;
+        private LavagemService lavagemService = new LavagemService();
 
         string sql = "";
 
@@ -43,10 +46,10 @@ namespace tccLavanderia.dao
                 salvarLavagem(roupa);
                 con.desconectar();
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                throw e;
             }
             return true;
         }
@@ -58,7 +61,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                cmd = new MySqlCommand(sql, con.conectar());
+                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", roupa.id);
                 cmd.Parameters.AddWithValue("@tipo", roupa.tipo.id);
@@ -66,9 +69,9 @@ namespace tccLavanderia.dao
                 cmd.Parameters.AddWithValue("@modelo", roupa.modelo);
                 cmd.Parameters.AddWithValue("@estacao", roupa.estacao);
                 cmd.Parameters.AddWithValue("@tecido", roupa.tecido.id);
-                excluirLavagem(roupa.id);
-                salvarLavagem(roupa);
+                excluirLavagem(roupa.id);                
                 cmd.ExecuteNonQuery();
+                salvarLavagem(roupa);
                 con.desconectar();
             }
             catch (Exception)
@@ -82,7 +85,7 @@ namespace tccLavanderia.dao
 
         private void salvarLavagem(Roupa roupa)
         {
-            sql = "insert into roupa_lavagem(roupa_id, lavagem_id) values(@roupa, @lavagem)";       
+             sql = "insert into roupa_lavagem(roupa_id, lavagem_id) values(@roupa, @lavagem)";       
             foreach (Lavagem lavagem in roupa.lavagens)
             {
                 cmd = new MySqlCommand(sql, con.conectar());
@@ -98,8 +101,7 @@ namespace tccLavanderia.dao
             sql = "delete from roupa_lavagem where roupa_id=@id";
 
             try
-            {
-                con.conectar();
+            {                
                 cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
@@ -116,7 +118,7 @@ namespace tccLavanderia.dao
         {
             string pTipo = "%" + tipo + "%";
 
-            sql = "SELECT r.modelo Modelo, t.nome Tipo, r.estacao Estacao, r.ano Ano from roupa r INNER JOIN tipo t ON t.id=r.tipo_id " +
+            sql = "SELECT r.id Cod, r.modelo Modelo, t.nome Tipo, r.estacao Estacao, r.ano Ano from roupa r INNER JOIN tipo t ON t.id=r.tipo_id " +
                 "where " +
                 "(@modelo is null or r.modelo = @modelo) " +
                 "AND " +
@@ -171,7 +173,7 @@ namespace tccLavanderia.dao
 
         public Roupa consultarId(int id)
         {
-            sql = "select * from roupa where id = @id";
+            sql = "select * from roupa r where r.id = @id";
 
             try
             {
@@ -185,13 +187,15 @@ namespace tccLavanderia.dao
                     roupa = new Roupa();
                     tecido = tecidoService.consultarId(int.Parse(dr["tecido_id"].ToString()));
                     tipo = tipoService.consultarId(int.Parse(dr["tipo_id"].ToString()));
-
+                    lavagem = lavagemService.listarLavagem(int.Parse(dr["id"].ToString()));
+                    
                     roupa.ano = dr["ano"].ToString();
                     roupa.id = Int16.Parse(dr["id"].ToString());
                     roupa.estacao = dr["estacao"].ToString();
                     roupa.modelo = dr["modelo"].ToString();
                     roupa.tecido = tecido;
                     roupa.tipo = tipo;
+                    roupa.lavagens = lavagem;
 
                 }
                 return roupa;
