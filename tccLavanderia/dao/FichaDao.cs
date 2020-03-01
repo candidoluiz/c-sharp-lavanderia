@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using tccLavanderia.model;
 using tccLavanderia.repository;
 
@@ -76,7 +72,7 @@ namespace tccLavanderia.dao
             return true;
         }
 
-        private void excluir(int id)
+        public bool excluir(Ficha ficha)
         {
             sql = "delete from ficha where id=@id";
 
@@ -84,14 +80,16 @@ namespace tccLavanderia.dao
             {
                 cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@id", ficha.id);
                 cmd.ExecuteNonQuery();
+        
             }
             catch (Exception)
             {
 
                 throw;
             }
+            return true;
         }
         /*
         public DataTable pesquisar(string id, string modelo, string lavanderia, string dataInicio, string dataFim)

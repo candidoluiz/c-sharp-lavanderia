@@ -28,14 +28,9 @@ namespace tccLavanderia.service
 
         public DataTable pesquisar(string id, string pesquisa)
         {
-            if (pesquisa == "")
-            {
-                pesquisa = null;
-            }
-            if (id == "")
-            {
-                id = null;
-            }
+            id = string.IsNullOrWhiteSpace(id) ? id = null : id;
+            pesquisa = string.IsNullOrWhiteSpace(pesquisa) ? pesquisa = null : pesquisa;
+
             return lavagemDao.pesquisar(id, pesquisa);
         }
 

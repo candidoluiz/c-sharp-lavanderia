@@ -18,6 +18,16 @@ namespace tccLavanderia.model
             empresa = new Empresa();
         }
 
+        public Ficha(int id, Lavanderia lavanderia, DateTime entrada, Roupa roupa, int quantidade, Empresa empresa)
+        {
+            this.id = id;
+            this.lavanderia = lavanderia;
+            this.entrada = entrada;
+            this.roupa = roupa;
+            this.quantidade = quantidade;
+            this.empresa = empresa;
+        }
+
     }
 
 }

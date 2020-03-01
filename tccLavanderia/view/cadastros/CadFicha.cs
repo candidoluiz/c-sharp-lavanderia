@@ -12,6 +12,9 @@ namespace tccLavanderia.view
         LavanderiaService lavanderiaService = new LavanderiaService();
         EmpresaService empresaService = new EmpresaService();
         RoupaService roupaService = new RoupaService();
+        Lavanderia lavanderia = new Lavanderia();
+        Empresa empresa = new Empresa();
+        Roupa roupa = new Roupa();
 
         public CadFicha(Ficha ficha)
         {
@@ -19,6 +22,7 @@ namespace tccLavanderia.view
             this.ficha = ficha;
             carregarCampos();
             carregarCombos();
+            desabilitarExcluir();
 
         }
         private void carregarCampos()
@@ -41,10 +45,18 @@ namespace tccLavanderia.view
             cbEmpresa.DataSource = empresaService.pesquisar(null, null);
         }
 
+        private void desabilitarExcluir()
+        {
+            btnExcluir.Enabled = ficha.id == 0 ? false : true;
+        }
+
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
+            lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
+            empresa.id = int.Parse(cbEmpresa.SelectedValue.ToString());
+            roupa = null;
+            ficha = new Ficha(ficha.id,lavanderia,dtpData.Value,roupa,int.Parse(txtQuantidade.Text),empresa);
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
