@@ -66,9 +66,6 @@ namespace tccLavanderia.view
                 MessageBox.Show(ex.Message,"Erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //DateTime data = dtpData.Value;
-            //ficha.entrada = data;
-            //ficha.quantidade=int.Parse(txt)
            
             ficha = new Ficha(ficha.id,lavanderia, dtpData.Value, roupa,int.Parse(txtQuantidade.Text),empresa);
         }
