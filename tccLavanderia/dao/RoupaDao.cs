@@ -171,9 +171,12 @@ namespace tccLavanderia.dao
             return true;
         }
 
-        public Roupa consultarId(int id)
+        public Roupa consultarId(string id, string modelo)
         {
-            sql = "select * from roupa r where r.id = @id";
+            sql = "select * from roupa r where "+
+                "(@id is null or r.id = @id) " +
+                "AND " +
+                "(@modelo is null or r.modelo = @modelo)";
 
             try
             {
@@ -181,6 +184,7 @@ namespace tccLavanderia.dao
                 cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@modelo", modelo);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {

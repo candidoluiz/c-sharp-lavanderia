@@ -55,9 +55,9 @@ namespace tccLavanderia.view
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int edit = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            string edit = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
-            roupa = roupaService.consultarId(edit);
+            roupa = roupaService.consultarId(edit, null);
             cadRoupa = new CadRoupa(roupa);
             cadRoupa.ShowDialog();
             caregarDataGrid();

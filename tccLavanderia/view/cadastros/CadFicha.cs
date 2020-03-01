@@ -54,9 +54,23 @@ namespace tccLavanderia.view
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
-            empresa.id = int.Parse(cbEmpresa.SelectedValue.ToString());
-            roupa = null;
-            ficha = new Ficha(ficha.id,lavanderia,dtpData.Value,roupa,int.Parse(txtQuantidade.Text),empresa);
+            //empresa.id = int.Parse(cbEmpresa.SelectedValue.ToString());
+            empresa.id = 1;
+            try
+            {
+                roupa = roupaService.consultarId(null, txtModelo.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message,"Erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //DateTime data = dtpData.Value;
+            //ficha.entrada = data;
+            //ficha.quantidade=int.Parse(txt)
+           
+            ficha = new Ficha(ficha.id,lavanderia, dtpData.Value, roupa,int.Parse(txtQuantidade.Text),empresa);
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)

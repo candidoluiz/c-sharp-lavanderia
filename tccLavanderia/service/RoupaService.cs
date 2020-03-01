@@ -41,9 +41,12 @@ namespace tccLavanderia.service
             return roupaDao.pesquisar(modelo, tipo, ano, estacao);
         }
 
-        public Roupa consultarId(int id)
+        public Roupa consultarId(string id, string modelo)
         {
-            return roupaDao.consultarId(id);
+            if (roupaDao.consultarId(id, modelo) != null)
+                return roupaDao.consultarId(id, modelo);
+            else
+                throw new Exception("Roupa não cadastrada");
         }
     }
 }
