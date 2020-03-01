@@ -69,12 +69,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dao\CidadeDao.cs" />
+    <Compile Include="dao\EmpresaDao.cs" />
+    <Compile Include="dao\FichaDao.cs" />
     <Compile Include="dao\LavagemDao.cs" />
     <Compile Include="dao\LavanderiaDao.cs" />
     <Compile Include="dao\RoupaDao.cs" />
     <Compile Include="dao\TecidoDao.cs" />
     <Compile Include="dao\TipoDao.cs" />
     <Compile Include="model\Cidade.cs" />
+    <Compile Include="model\Empresa.cs" />
     <Compile Include="model\Estacao.cs" />
     <Compile Include="model\Ficha.cs" />
     <Compile Include="model\Lavagem.cs" />
@@ -86,6 +89,7 @@
     <Compile Include="model\ValorLavagem.cs" />
     <Compile Include="repository\ConnectionFactory.cs" />
     <Compile Include="service\CidadeService.cs" />
+    <Compile Include="service\EmpresaService.cs" />
     <Compile Include="service\FichaService.cs" />
     <Compile Include="service\LavagemService.cs" />
     <Compile Include="service\LavanderiaService.cs" />

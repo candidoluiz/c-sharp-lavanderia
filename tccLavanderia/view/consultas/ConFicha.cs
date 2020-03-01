@@ -26,6 +26,7 @@ namespace tccLavanderia.view
         private void btnNovo_Click(object sender, EventArgs e)
         {
             cadFicha = new CadFicha(new Ficha());
+            cadFicha.ShowDialog();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

@@ -50,8 +50,15 @@ namespace tccLavanderia.dao
 
         public bool editar(Lavanderia lavanderia)
         {
-            sql = "update lavanderia set nome = @nome, cnpj = @cnpj, endereco = @endereco, " +
-                "cidade = @cidade, uf = @uf, numero = @numero, bairro = @bairro, cep = @cep where id = @id";
+            sql = "update lavanderia set " +
+            "nome = @nome, " +
+            "cnpj = @cnpj, " +
+            "endereco = @endereco, " +
+            "cidade_id = @cidade, " +
+            "numero = @numero, " +
+            "bairro = @bairro, " +
+            "cep = @cep " +
+            "where id = @id";
 
             try
             {
