@@ -15,6 +15,7 @@ namespace tccLavanderia
         ConCidade conCidade;
         ConTecido conTecido;
         ConTipo conTipo;
+        ConEmpresa conEmpresa;
 
         public Form1()
         {
@@ -67,6 +68,12 @@ namespace tccLavanderia
         {
             conTipo = new ConTipo();
             conTipo.ShowDialog();
+        }
+
+        private void btnEmpresa_Click(object sender, EventArgs e)
+        {
+            conEmpresa = new ConEmpresa();
+            conEmpresa.ShowDialog();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace tccLavanderia.view
     public partial class CadFicha : Form
     {
         Ficha ficha;
+        FichaService fichaService = new FichaService();
         LavanderiaService lavanderiaService = new LavanderiaService();
         EmpresaService empresaService = new EmpresaService();
         RoupaService roupaService = new RoupaService();
@@ -43,6 +44,23 @@ namespace tccLavanderia.view
 
             cbLavanderia.DataSource = lavanderiaService.pesquisar(null, null);
             cbEmpresa.DataSource = empresaService.pesquisar(null, null);
+            cbEmpresa.SelectedIndex = -1;
+            cbLavanderia.SelectedIndex = -1;
+        }
+
+        private bool validarCampos()
+        {
+            if (txtModelo.Text.Trim().Equals("") ||
+                txtQuantidade.Text.Equals("") ||
+                cbEmpresa.SelectedIndex < 0 ||
+                cbLavanderia.SelectedIndex < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void desabilitarExcluir()
@@ -50,24 +68,45 @@ namespace tccLavanderia.view
             btnExcluir.Enabled = ficha.id == 0 ? false : true;
         }
 
+        private void limparCampos()
+        {
+            txtModelo.Text = "";
+            txtQuantidade.Text = "";
+            cbEmpresa.SelectedIndex = -1;
+            cbLavanderia.SelectedIndex = -1;
+        }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
-            //empresa.id = int.Parse(cbEmpresa.SelectedValue.ToString());
-            empresa.id = 1;
-            try
+            if (validarCampos())
             {
-                roupa = roupaService.consultarId(null, txtModelo.Text);
-            }
-            catch (Exception ex)
-            {
+                lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
+                empresa.id = int.Parse(cbEmpresa.SelectedValue.ToString());
+                try
+                {
+                    roupa = roupaService.consultarId(null, txtModelo.Text);
+                }
+                catch (Exception ex)
+                {
 
-                MessageBox.Show(ex.Message,"Erro",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ficha = new Ficha(ficha.id, lavanderia, dtpData.Value, roupa, int.Parse(txtQuantidade.Text), empresa);
+                if (fichaService.salvar(ficha))
+                {
+                    MessageBox.Show("Ficha salva com sucesso");
+                    this.limparCampos();
+                    ficha = new Ficha();
+                    txtModelo.Focus();
+                }
             }
-           
-            ficha = new Ficha(ficha.id,lavanderia, dtpData.Value, roupa,int.Parse(txtQuantidade.Text),empresa);
+            else
+            {
+                MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
@@ -76,6 +115,11 @@ namespace tccLavanderia.view
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

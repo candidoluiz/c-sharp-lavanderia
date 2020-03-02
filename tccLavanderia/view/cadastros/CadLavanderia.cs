@@ -12,6 +12,7 @@ namespace tccLavanderia.view
         private Lavanderia lavanderia;
         private CidadeService cidadeService = new CidadeService();
         private Cidade cidade;  
+
         public CadLavanderia(Lavanderia lavanderia)
         {
             InitializeComponent();

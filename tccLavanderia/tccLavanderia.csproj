@@ -145,11 +145,11 @@
     <Compile Include="view\cadastros\CadTipo.Designer.cs">
       <DependentUpon>CadTipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\consultas\ComEmpresa.cs">
+    <Compile Include="view\consultas\ConEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\consultas\ComEmpresa.Designer.cs">
-      <DependentUpon>ComEmpresa.cs</DependentUpon>
+    <Compile Include="view\consultas\ConEmpresa.Designer.cs">
+      <DependentUpon>ConEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="view\consultas\ConCidade.cs">
       <SubType>Form</SubType>
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="view\cadastros\CadTipo.resx">
       <DependentUpon>CadTipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\consultas\ComEmpresa.resx">
-      <DependentUpon>ComEmpresa.cs</DependentUpon>
+    <EmbeddedResource Include="view\consultas\ConEmpresa.resx">
+      <DependentUpon>ConEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\consultas\ConCidade.resx">
       <DependentUpon>ConCidade.cs</DependentUpon>

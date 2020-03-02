@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbLavanderia = new System.Windows.Forms.ComboBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.txtModelo = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,6 +113,7 @@
             this.btnImprimir.Size = new System.Drawing.Size(139, 39);
             this.btnImprimir.Text = "SALVAR E IMPRIMIR";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // toolStripSeparator2
             // 
@@ -190,6 +191,16 @@
             this.groupBox1.Size = new System.Drawing.Size(1242, 526);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(6, 82);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(200, 26);
+            this.txtModelo.TabIndex = 41;
+            this.txtModelo.TabStop = false;
             // 
             // label15
             // 
@@ -490,16 +501,6 @@
             this.btnConfirmar.TabIndex = 5;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.Location = new System.Drawing.Point(6, 82);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(200, 26);
-            this.txtModelo.TabIndex = 41;
-            this.txtModelo.TabStop = false;
             // 
             // CadFicha
             // 

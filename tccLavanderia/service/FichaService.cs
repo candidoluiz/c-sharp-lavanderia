@@ -25,8 +25,8 @@ namespace tccLavanderia.service
             modelo = string.IsNullOrWhiteSpace(modelo) ? modelo = null : modelo;
             lavanderia = string.IsNullOrWhiteSpace(lavanderia) ? lavanderia = null : lavanderia;
 
-            //return fichaDao.pesquisar(id, pesquisa);
-            return null;
+            return fichaDao.pesquisar(id, modelo, lavanderia, inicio, fim);
+
         }
 
         public Ficha consultarId(int id)

@@ -14,6 +14,12 @@ namespace tccLavanderia.view
         public ConFicha()
         {
             InitializeComponent();
+            this.caregarDataGrid();
+        }
+
+        private void caregarDataGrid()
+        {
+            dataGridView1.DataSource = fichaService.pesquisar(null, null, null, dtpInicio.Value, dtpFim.Value);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -27,6 +33,11 @@ namespace tccLavanderia.view
             //ficha = fichaService.consultarId();
             //cadFicha = new CadFicha(ficha);
            // cadFicha.ShowDialog();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = fichaService.pesquisar(txtCodigo.Text, txtModelo.Text, null, dtpInicio.Value, dtpFim.Value);
         }
     }
 }

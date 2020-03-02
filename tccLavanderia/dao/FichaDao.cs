@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Globalization;
 using tccLavanderia.model;
 using tccLavanderia.repository;
 
@@ -17,17 +18,20 @@ namespace tccLavanderia.dao
 
         public bool salvar(Ficha ficha)
         {
-            sql = "insert into ficha(lavanderia_id, roupa_id, entrada, empresa_id, quantidade) " +
+            sql = "insert into ficha(lavanderia_id, roupa_id, data, empresa_id, quantidade) " +
                   "values(@lavanderia, @roupa, @entrada, @empresa, @quantidade)";
 
             try
             {
+
+                string dia = ficha.entrada.ToString("yyyy/MM/dd");
+
                 con.conectar();
                 cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@lavanderia_id", ficha.lavanderia.id);
-                cmd.Parameters.AddWithValue("@roupa", ficha.roupa.ano);
-                cmd.Parameters.AddWithValue("@entrada", ficha.entrada);
+                cmd.Parameters.AddWithValue("@lavanderia", ficha.lavanderia.id);
+                cmd.Parameters.AddWithValue("@roupa", ficha.roupa.id);
+                cmd.Parameters.AddWithValue("@entrada",dia);
                 cmd.Parameters.AddWithValue("@empresa", ficha.empresa.id);
                 cmd.Parameters.AddWithValue("@quantidade", ficha.quantidade);
                 cmd.ExecuteNonQuery();
@@ -52,12 +56,14 @@ namespace tccLavanderia.dao
 
             try
             {
+                string dia = ficha.entrada.ToString("yyyy/MM/dd");
+
                 con.conectar();
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@lavanderia_id", ficha.lavanderia.id);
                 cmd.Parameters.AddWithValue("@roupa", ficha.roupa.ano);
-                cmd.Parameters.AddWithValue("@entrada", ficha.entrada);
+                cmd.Parameters.AddWithValue("@entrada", dia);
                 cmd.Parameters.AddWithValue("@empresa", ficha.empresa.id);
                 cmd.Parameters.AddWithValue("@quantidade", ficha.quantidade);
                 cmd.ExecuteNonQuery();
@@ -91,24 +97,30 @@ namespace tccLavanderia.dao
             }
             return true;
         }
-        /*
-        public DataTable pesquisar(string id, string modelo, string lavanderia, string dataInicio, string dataFim)
+        
+        public DataTable pesquisar(string id, string modelo, string lavanderia, DateTime dataInicio, DateTime dataFim)
         {
-            string pId = "%" + id + "%";
-            string pModelo = "%" + modelo + "%";
             string pLavanderia = "%" + lavanderia + "%";
-            string pdataInicio = "%" + dataInicio + "%";
-            string pdataFim = "%" + dataFim + "%";
+            string pDataInicio = dataInicio.ToString("yyyy/MM/dd");
+            string pDataFim =dataFim.ToString("yyyy/MM/dd");
 
-            sql = "SELECT r.id Cod, r.modelo Modelo, t.nome Tipo, r.estacao Estacao, r.ano Ano from roupa r INNER JOIN tipo t ON t.id=r.tipo_id " +
+            sql = "select * from ficha f " +
+                    "INNER JOIN roupa r ON r.id = f.roupa_id " +
+                    "INNER JOIN tecido t ON t.id =r.tecido_id " +
+                    "INNER JOIN tipo tp ON tp.id=r.tipo_id " +
+                    "INNER JOIN roupa_lavagem rp ON rp.roupa_id = r.id " +
+                    "INNER JOIN lavagem l ON l.id = rp.lavagem_id " +
+                   // "INNER JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
+                    //"INNER JOIN lavanderia lav ON lav.id = vl.lavanderia_id " +
+                    "INNER JOIN empresa e ON e.id = f.empresa_id " +
                 "where " +
+                "(@id is null or f.id = @id) " +
+                "AND " +
                 "(@modelo is null or r.modelo = @modelo) " +
                 "AND " +
-                "(@tipo is null or t.nome like @tipo) " +
-                "AND " +
-                "(@ano is null or r.ano = @ano) " +
-                "AND " +
-                "(@estacao is null or r.estacao = @estacao)";
+               // "(@lavanderia is null or lav.nome like @lavanderia) " +
+               // "AND " +
+                "(f.data BETWEEN @inicio AND @fim )";
 
             try
             {
@@ -116,10 +128,11 @@ namespace tccLavanderia.dao
                 con.conectar();
                 cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@modelo", modelo);
-                cmd.Parameters.AddWithValue("@tipo", pTipo);
-                cmd.Parameters.AddWithValue("@ano", ano);
-                cmd.Parameters.AddWithValue("@estacao", estacao);
+                //cmd.Parameters.AddWithValue("@lavanderia", pLavanderia);
+                cmd.Parameters.AddWithValue("@inicio", pDataInicio);
+                cmd.Parameters.AddWithValue("@fim", pDataFim);
                 dt.Load(cmd.ExecuteReader());
                 con.desconectar();
                 return dt;
@@ -129,6 +142,6 @@ namespace tccLavanderia.dao
 
                 throw;
             }
-        }*/
+        }
     }
 }
