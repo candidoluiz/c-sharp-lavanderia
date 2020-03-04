@@ -52,7 +52,7 @@ namespace tccLavanderia.dao
                     "entrada = @entrada, " +
                     "empresa_id = @empresa, " +
                     "quantidade = @quantidade " +
-                  "where id = @id"
+                  "where id = @id";
 
             try
             {
