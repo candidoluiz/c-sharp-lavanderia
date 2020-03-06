@@ -42,9 +42,9 @@ namespace tccLavanderia
             this.btnCidade = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTecido = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTipoRoupa = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@ namespace tccLavanderia
             this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(784, 26);
+            this.toolStrip1.Size = new System.Drawing.Size(1264, 26);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -101,51 +101,58 @@ namespace tccLavanderia
             // btnRoupa
             // 
             this.btnRoupa.Name = "btnRoupa";
-            this.btnRoupa.Size = new System.Drawing.Size(203, 24);
+            this.btnRoupa.Size = new System.Drawing.Size(202, 24);
             this.btnRoupa.Text = "Roupas";
             this.btnRoupa.Click += new System.EventHandler(this.btnRoupa_Click);
             // 
             // btnLavagens
             // 
             this.btnLavagens.Name = "btnLavagens";
-            this.btnLavagens.Size = new System.Drawing.Size(203, 24);
+            this.btnLavagens.Size = new System.Drawing.Size(202, 24);
             this.btnLavagens.Text = "Lavagens";
             this.btnLavagens.Click += new System.EventHandler(this.btnLavagens_Click);
             // 
             // btnLavanderia
             // 
             this.btnLavanderia.Name = "btnLavanderia";
-            this.btnLavanderia.Size = new System.Drawing.Size(203, 24);
+            this.btnLavanderia.Size = new System.Drawing.Size(202, 24);
             this.btnLavanderia.Text = "Lavanderia";
             this.btnLavanderia.Click += new System.EventHandler(this.lavanderiaToolStripMenuItem_Click);
             // 
             // btnValorLavagem
             // 
             this.btnValorLavagem.Name = "btnValorLavagem";
-            this.btnValorLavagem.Size = new System.Drawing.Size(203, 24);
+            this.btnValorLavagem.Size = new System.Drawing.Size(202, 24);
             this.btnValorLavagem.Text = "Valores de Lavagens";
             this.btnValorLavagem.Click += new System.EventHandler(this.btnValorLavagem_Click);
             // 
             // btnCidade
             // 
             this.btnCidade.Name = "btnCidade";
-            this.btnCidade.Size = new System.Drawing.Size(203, 24);
+            this.btnCidade.Size = new System.Drawing.Size(202, 24);
             this.btnCidade.Text = "Cidade";
             this.btnCidade.Click += new System.EventHandler(this.btnCidade_Click);
             // 
             // btnTecido
             // 
             this.btnTecido.Name = "btnTecido";
-            this.btnTecido.Size = new System.Drawing.Size(203, 24);
+            this.btnTecido.Size = new System.Drawing.Size(202, 24);
             this.btnTecido.Text = "Tecido";
             this.btnTecido.Click += new System.EventHandler(this.btnTecido_Click);
             // 
             // btnTipoRoupa
             // 
             this.btnTipoRoupa.Name = "btnTipoRoupa";
-            this.btnTipoRoupa.Size = new System.Drawing.Size(203, 24);
+            this.btnTipoRoupa.Size = new System.Drawing.Size(202, 24);
             this.btnTipoRoupa.Text = "Tipo de Roupa";
             this.btnTipoRoupa.Click += new System.EventHandler(this.btnTipoRoupa_Click);
+            // 
+            // btnEmpresa
+            // 
+            this.btnEmpresa.Name = "btnEmpresa";
+            this.btnEmpresa.Size = new System.Drawing.Size(202, 24);
+            this.btnEmpresa.Text = "Empresa";
+            this.btnEmpresa.Click += new System.EventHandler(this.btnEmpresa_Click);
             // 
             // toolStripSeparator2
             // 
@@ -157,26 +164,19 @@ namespace tccLavanderia
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::tccLavanderia.Properties.Resources.Lavanderia_Solidaria_S_L_slideshow_image;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 229);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(784, 432);
+            this.pictureBox1.Size = new System.Drawing.Size(1264, 432);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnEmpresa
-            // 
-            this.btnEmpresa.Name = "btnEmpresa";
-            this.btnEmpresa.Size = new System.Drawing.Size(203, 24);
-            this.btnEmpresa.Text = "Empresa";
-            this.btnEmpresa.Click += new System.EventHandler(this.btnEmpresa_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1264, 661);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

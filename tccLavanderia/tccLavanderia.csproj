@@ -76,6 +76,7 @@
     <Compile Include="dao\RoupaDao.cs" />
     <Compile Include="dao\TecidoDao.cs" />
     <Compile Include="dao\TipoDao.cs" />
+    <Compile Include="dao\ValorLavagemDao.cs" />
     <Compile Include="model\Cidade.cs" />
     <Compile Include="model\Empresa.cs" />
     <Compile Include="model\Estacao.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="service\RoupaService.cs" />
     <Compile Include="service\TecidoService.cs" />
     <Compile Include="service\TipoService.cs" />
+    <Compile Include="service\ValorLavagemService.cs" />
     <Compile Include="utils\Geral.cs" />
     <Compile Include="view\cadastros\CadCidade.cs">
       <SubType>Form</SubType>
@@ -144,6 +146,12 @@
     </Compile>
     <Compile Include="view\cadastros\CadTipo.Designer.cs">
       <DependentUpon>CadTipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\cadastros\CadValorLavagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\cadastros\CadValorLavagem.Designer.cs">
+      <DependentUpon>CadValorLavagem.cs</DependentUpon>
     </Compile>
     <Compile Include="view\consultas\ConEmpresa.cs">
       <SubType>Form</SubType>
@@ -241,6 +249,9 @@
     <EmbeddedResource Include="view\cadastros\CadTipo.resx">
       <DependentUpon>CadTipo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\cadastros\CadValorLavagem.resx">
+      <DependentUpon>CadValorLavagem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\consultas\ConEmpresa.resx">
       <DependentUpon>ConEmpresa.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minimizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

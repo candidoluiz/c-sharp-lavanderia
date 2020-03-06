@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using tccLavanderia.model;
 using tccLavanderia.service;
@@ -21,6 +14,7 @@ namespace tccLavanderia.view
         public ConLavanderia()
         {
             InitializeComponent();
+            caregarDataGrid();
             
         }
 
@@ -41,12 +35,14 @@ namespace tccLavanderia.view
             lavanderia = lavanderiaService.consultarId(edit);
             cadLavanderia = new CadLavanderia(lavanderia);
             cadLavanderia.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             cadLavanderia = new CadLavanderia(new Lavanderia());
             cadLavanderia.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void ConLavanderia_Load(object sender, EventArgs e)
