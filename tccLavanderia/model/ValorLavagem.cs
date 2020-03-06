@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tccLavanderia.model
+﻿namespace tccLavanderia.model
 {
     public class ValorLavagem
     {
@@ -12,5 +6,21 @@ namespace tccLavanderia.model
         public Lavanderia lavanderia { get; set; }
         public Lavagem lavagem { get; set; }
         public double valor { get; set; }
+
+        public ValorLavagem()
+        {
+            new Lavanderia();
+            new Lavagem();
+        }
+
+        public ValorLavagem(int id, Lavanderia lavanderia, Lavagem lavagem, double valor )
+        {
+            this.id = id;
+            this.lavanderia = lavanderia;
+            this.lavagem = lavagem;
+            this.valor = valor;
+        }
     }
+
+
 }
