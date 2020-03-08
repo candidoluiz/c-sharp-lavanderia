@@ -22,6 +22,7 @@ namespace tccLavanderia.view
         {
             cadValorLavagem = new CadValorLavagem(new ValorLavagem());
             cadValorLavagem.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void caregarDataGrid()
@@ -36,6 +37,7 @@ namespace tccLavanderia.view
             valorLavagem = valorLavagemService.consultarId(edit);
             cadValorLavagem = new CadValorLavagem(valorLavagem);
             cadValorLavagem.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void txtSair_Click(object sender, EventArgs e)

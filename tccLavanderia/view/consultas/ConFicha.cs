@@ -10,11 +10,13 @@ namespace tccLavanderia.view
         private CadFicha cadFicha;
         private Ficha ficha = new Ficha();
         private FichaService fichaService = new FichaService();
+        DateTime date = DateTime.Now;
 
         public ConFicha()
         {
             InitializeComponent();
             this.caregarDataGrid();
+            dtpInicio.Value = new DateTime(date.Year, date.Month, 1);
         }
 
         private void caregarDataGrid()
@@ -30,9 +32,11 @@ namespace tccLavanderia.view
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //ficha = fichaService.consultarId();
-            //cadFicha = new CadFicha(ficha);
-           // cadFicha.ShowDialog();
+            int edit = Int16.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+
+            ficha = fichaService.consultarId(edit);
+            cadFicha = new CadFicha(ficha);
+            cadFicha.ShowDialog();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

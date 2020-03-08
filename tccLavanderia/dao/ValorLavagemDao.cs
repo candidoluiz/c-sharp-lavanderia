@@ -18,8 +18,8 @@ namespace tccLavanderia.dao
         ValorLavagem valorLavagem;
         Lavanderia lavanderia;
         Lavagem lavagem;
-        LavanderiaService lavanderiaService;
-        LavagemService lavagemService;
+        LavanderiaService lavanderiaService = new LavanderiaService();
+        LavagemService lavagemService = new LavagemService();
 
         public bool salvar(ValorLavagem valorLavagem)
         {
@@ -50,7 +50,7 @@ namespace tccLavanderia.dao
             sql = "update valor_lavagem set " +
                     "lavanderia_id = @lavanderia, " +
                     "lavagem_id = @lavagem, " +
-                    "valor = @valor, " +
+                    "valor = @valor " +
                   "where id = @id";
 
             try
@@ -58,9 +58,10 @@ namespace tccLavanderia.dao
                 con.conectar();
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@lavanderia_id", valorLavagem.lavanderia.id);
+                cmd.Parameters.AddWithValue("@lavanderia", valorLavagem.lavanderia.id);
                 cmd.Parameters.AddWithValue("@lavagem", valorLavagem.lavagem.id);
                 cmd.Parameters.AddWithValue("@valor", valorLavagem.valor);
+                cmd.Parameters.AddWithValue("@id", valorLavagem.id);
                 cmd.ExecuteNonQuery();
                 con.desconectar();
             }
@@ -98,7 +99,7 @@ namespace tccLavanderia.dao
             string pLavanderia = "%" + lavanderia + "%";
             string pLavagem = "%" + lavagem + "%";
 
-            sql = "select * from lavagem l INNER JOIN valor_lavagem vl ON l.id = vl.lavagem_id INNER JOIN lavanderia lv ON lv.id = vl.lavanderia_id "+
+            sql = "select vl.id Cod, lv.nome Lavanderia, l.processo Processo, vl.valor Valor from lavagem l INNER JOIN valor_lavagem vl ON l.id = vl.lavagem_id INNER JOIN lavanderia lv ON lv.id = vl.lavanderia_id "+
                 "where " +
                "(@lavagem is null or l.processo like @lavagem) " +
                "AND " +
@@ -139,7 +140,6 @@ namespace tccLavanderia.dao
                     valorLavagem = new ValorLavagem();
                     lavanderia = lavanderiaService.consultarId(int.Parse(dr["lavanderia_id"].ToString()));
                     lavagem = lavagemService.consultarId(int.Parse(dr["lavagem_id"].ToString()));
-
                     valorLavagem.id = int.Parse(dr["id"].ToString());
                     valorLavagem.lavagem = lavagem;
                     valorLavagem.lavanderia = lavanderia;
@@ -154,6 +154,35 @@ namespace tccLavanderia.dao
                 throw;
             }
 
+        }
+
+        public double valor(string modelo, string lavanderiaId)
+        {
+            
+            sql = "select sum(vl.valor) valor from roupa r " +
+                "INNER JOIN roupa_lavagem rp ON r.id = rp.roupa_id " +
+                "INNER JOIN lavagem l ON rp.lavagem_id = l.id " +
+                "INNER JOIN valor_lavagem vl ON l.id = vl.lavagem_id " +
+                "INNER JOIN lavanderia la ON vl.lavanderia_id = la.id " +
+                "WHERE r.modelo = @modelo " +
+                "AND la.id = @lavanderiaId";
+          
+            try
+            {
+                con.conectar();
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@modelo", modelo);
+                cmd.Parameters.AddWithValue("@lavanderiaId", lavanderiaId);
+               var total = cmd.ExecuteScalar();
+                con.desconectar();
+                return (double)total;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("A lavanderia selecionada não lava esse modelo");
+            }
         }
     }
 }

@@ -129,7 +129,7 @@
             this.cbTipo.Location = new System.Drawing.Point(557, 74);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(399, 28);
-            this.cbTipo.TabIndex = 23;
+            this.cbTipo.TabIndex = 2;
             // 
             // cbTecido
             // 
@@ -139,7 +139,7 @@
             this.cbTecido.Location = new System.Drawing.Point(10, 128);
             this.cbTecido.Name = "cbTecido";
             this.cbTecido.Size = new System.Drawing.Size(225, 28);
-            this.cbTecido.TabIndex = 22;
+            this.cbTecido.TabIndex = 3;
             // 
             // txtModelo
             // 
@@ -147,7 +147,7 @@
             this.txtModelo.Location = new System.Drawing.Point(245, 130);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(711, 26);
-            this.txtModelo.TabIndex = 0;
+            this.txtModelo.TabIndex = 4;
             // 
             // label2
             // 
@@ -167,7 +167,7 @@
             this.cbColecao.Location = new System.Drawing.Point(241, 74);
             this.cbColecao.Name = "cbColecao";
             this.cbColecao.Size = new System.Drawing.Size(310, 28);
-            this.cbColecao.TabIndex = 3;
+            this.cbColecao.TabIndex = 1;
             // 
             // label8
             // 
@@ -205,7 +205,7 @@
             this.txtAno.Location = new System.Drawing.Point(10, 76);
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(225, 26);
-            this.txtAno.TabIndex = 12;
+            this.txtAno.TabIndex = 21;
             // 
             // txtId
             // 

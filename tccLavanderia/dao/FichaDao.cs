@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using tccLavanderia.model;
 using tccLavanderia.repository;
+using tccLavanderia.service;
 
 namespace tccLavanderia.dao
 {
@@ -13,6 +14,13 @@ namespace tccLavanderia.dao
         MySqlCommand cmd;
         private DataTable dt;
         private MySqlDataReader dr;
+        Ficha ficha;
+        Roupa roupa;
+        Lavanderia lavanderia;
+        Empresa empresa;
+        EmpresaService empresaService = new EmpresaService();
+        RoupaService roupaService = new RoupaService();
+        LavanderiaService lavanderiaService = new LavanderiaService();
 
         string sql = "";
 
@@ -49,7 +57,7 @@ namespace tccLavanderia.dao
             sql = "update ficha set " +
                     "lavanderia_id = @lavanderia, " +
                     "roupa_id = @roupa, " +
-                    "entrada = @entrada, " +
+                    "data = @entrada, " +
                     "empresa_id = @empresa, " +
                     "quantidade = @quantidade " +
                   "where id = @id";
@@ -61,11 +69,12 @@ namespace tccLavanderia.dao
                 con.conectar();
                 MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@lavanderia_id", ficha.lavanderia.id);
-                cmd.Parameters.AddWithValue("@roupa", ficha.roupa.ano);
+                cmd.Parameters.AddWithValue("@lavanderia", ficha.lavanderia.id);
+                cmd.Parameters.AddWithValue("@roupa", ficha.roupa.id);
                 cmd.Parameters.AddWithValue("@entrada", dia);
                 cmd.Parameters.AddWithValue("@empresa", ficha.empresa.id);
                 cmd.Parameters.AddWithValue("@quantidade", ficha.quantidade);
+                cmd.Parameters.AddWithValue("@id", ficha.id);
                 cmd.ExecuteNonQuery();
                 con.desconectar();
             }
@@ -104,22 +113,22 @@ namespace tccLavanderia.dao
             string pDataInicio = dataInicio.ToString("yyyy/MM/dd");
             string pDataFim =dataFim.ToString("yyyy/MM/dd");
 
-            sql = "select * from ficha f " +
+            sql = "select f.id Cod, r.modelo Modelo, tp.nome Tipo, e.nome Empresa, lav.nome Lavanderia, f.data Data, f.quantidade Quantidade, vl.valor 'Valor Unitario', (f.quantidade*vl.valor) Total  from ficha f " +
                     "INNER JOIN roupa r ON r.id = f.roupa_id " +
                     "INNER JOIN tecido t ON t.id =r.tecido_id " +
                     "INNER JOIN tipo tp ON tp.id=r.tipo_id " +
                     "INNER JOIN roupa_lavagem rp ON rp.roupa_id = r.id " +
                     "INNER JOIN lavagem l ON l.id = rp.lavagem_id " +
-                   // "INNER JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
-                    //"INNER JOIN lavanderia lav ON lav.id = vl.lavanderia_id " +
+                    "INNER JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
+                    "INNER JOIN lavanderia lav ON lav.id = vl.lavanderia_id " +
                     "INNER JOIN empresa e ON e.id = f.empresa_id " +
                 "where " +
                 "(@id is null or f.id = @id) " +
                 "AND " +
                 "(@modelo is null or r.modelo = @modelo) " +
                 "AND " +
-               // "(@lavanderia is null or lav.nome like @lavanderia) " +
-               // "AND " +
+                "(@lavanderia is null or lav.nome like @lavanderia) " +
+                "AND " +
                 "(f.data BETWEEN @inicio AND @fim )";
 
             try
@@ -130,7 +139,7 @@ namespace tccLavanderia.dao
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@modelo", modelo);
-                //cmd.Parameters.AddWithValue("@lavanderia", pLavanderia);
+                cmd.Parameters.AddWithValue("@lavanderia", pLavanderia);
                 cmd.Parameters.AddWithValue("@inicio", pDataInicio);
                 cmd.Parameters.AddWithValue("@fim", pDataFim);
                 dt.Load(cmd.ExecuteReader());
@@ -140,6 +149,40 @@ namespace tccLavanderia.dao
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public Ficha consultarId(int id)
+        {
+            sql = "select * from ficha where id = @id";
+            ficha = new Ficha();
+            try
+            {
+                con.conectar();
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+
+                    lavanderia = lavanderiaService.consultarId(int.Parse(dr["lavanderia_id"].ToString()));
+                    roupa = roupaService.consultarId(dr["roupa_id"].ToString(),null);
+                    empresa = empresaService.consultarId(int.Parse(dr["empresa_id"].ToString()));
+
+                    ficha.id = Int16.Parse(dr["id"].ToString());
+                    ficha.empresa = empresa;
+                    ficha.entrada = DateTime.Parse(dr["data"].ToString());
+                    ficha.lavanderia = lavanderia;
+                    ficha.quantidade = int.Parse(dr["quantidade"].ToString());
+                    ficha.roupa = roupa;                    
+                }
+                return ficha;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

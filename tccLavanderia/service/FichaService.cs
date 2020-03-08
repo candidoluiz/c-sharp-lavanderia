@@ -31,8 +31,7 @@ namespace tccLavanderia.service
 
         public Ficha consultarId(int id)
         {
-            //return fichaDao.consultarId(id);
-            return null;
+            return fichaDao.consultarId(id);
         }
     }
 }

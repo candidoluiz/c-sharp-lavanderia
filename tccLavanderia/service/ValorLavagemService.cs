@@ -39,5 +39,19 @@ namespace tccLavanderia.service
             
             return valorLavagemDao.pesquisar(lavanderia, lavagem);
         }
+
+        public double valor(string modelo, string lavanderiaId, string quantidade)
+        {
+            try
+            {
+                return valorLavagemDao.valor(modelo, lavanderiaId) * double.Parse(quantidade);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace tccLavanderia.service
     public class RoupaService
     {
         RoupaDao roupaDao = new RoupaDao();
+        Roupa roupa;
 
         public bool salvar(Roupa roupa)
         {
@@ -43,7 +44,8 @@ namespace tccLavanderia.service
 
         public Roupa consultarId(string id, string modelo)
         {
-            if (roupaDao.consultarId(id, modelo) != null)
+            roupa = roupaDao.consultarId(id, modelo);
+            if (roupa.modelo != null)
                 return roupaDao.consultarId(id, modelo);
             else
                 throw new Exception("Roupa não cadastrada");

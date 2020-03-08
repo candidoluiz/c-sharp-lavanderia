@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using tccLavanderia.model;
 using tccLavanderia.service;
@@ -10,6 +11,7 @@ namespace tccLavanderia.view
     {
         Ficha ficha;
         FichaService fichaService = new FichaService();
+        ValorLavagemService valorLavagemService = new ValorLavagemService();
         LavanderiaService lavanderiaService = new LavanderiaService();
         EmpresaService empresaService = new EmpresaService();
         RoupaService roupaService = new RoupaService();
@@ -20,18 +22,26 @@ namespace tccLavanderia.view
         public CadFicha(Ficha ficha)
         {
             InitializeComponent();
-            this.ficha = ficha;
-            carregarCampos();
             carregarCombos();
+            this.ficha = ficha;
             desabilitarExcluir();
-
+            limparCampos();
+            carregarCampos();           
         }
         private void carregarCampos()
         {
             txtId.Text = Geral.removerZero(ficha.id);
+            txtQuantidade.Text = ficha.quantidade.ToString();
             txtComposicao.Text = ficha.roupa.tecido.composicao;
-            txtLavanderia.Text = ficha.lavanderia.nome;
             txtTecido.Text = ficha.roupa.tecido.nome;
+            txtTipo.Text = ficha.roupa.tipo.nome;
+            txtAno.Text = ficha.roupa.ano;
+            txtColecao.Text = ficha.roupa.estacao;
+            txtModelo.Text = ficha.roupa.modelo;
+            if(!String.IsNullOrWhiteSpace(ficha.lavanderia.nome))
+                cbLavanderia.SelectedValue = ficha.lavanderia.id;
+            if(!String.IsNullOrWhiteSpace(ficha.empresa.nome))
+                cbEmpresa.SelectedValue = ficha.empresa.id;           
         }
 
         private void carregarCombos()
@@ -72,8 +82,16 @@ namespace tccLavanderia.view
         {
             txtModelo.Text = "";
             txtQuantidade.Text = "";
+            txtTecido.Text = "";
+            txtTipo.Text = "";
+            txtAno.Text = "";
+            txtColecao.Text = "";
+            txtComposicao.Text = "";
+            lblTotal.Text = "-";
+            lbLavagen.Items.Clear();
             cbEmpresa.SelectedIndex = -1;
             cbLavanderia.SelectedIndex = -1;
+            roupa = new Roupa();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -121,5 +139,52 @@ namespace tccLavanderia.view
         {
            
         }
+
+        private void txtModelo_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                lbLavagen.Items.Clear();
+                roupa = roupaService.consultarId(null, txtModelo.Text);
+                foreach (Lavagem r in roupa.lavagens)
+                    lbLavagen.Items.Add(r.processo);
+                    
+                lbLavagen.EndUpdate();
+                txtTecido.Text = roupa.tecido.nome;
+                txtTipo.Text = roupa.tipo.nome;
+                txtAno.Text = roupa.ano;
+                txtComposicao.Text = roupa.tecido.composicao;
+                txtColecao.Text = roupa.estacao;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtModelo.Focus();
+            }
+           
+        }
+
+        private void cbLavanderia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(txtModelo.Text != "" )
+            {
+                try
+                {
+                    if(cbLavanderia.SelectedIndex != -1)
+                        lblTotal.Text = valorLavagemService.valor(txtModelo.Text, cbLavanderia.SelectedValue.ToString(), txtQuantidade.Text).ToString("C", CultureInfo.CurrentCulture);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbLavanderia.SelectedIndex = -1;
+                    cbLavanderia.Focus();
+                }
+                
+            }
+           
+        }
+
     }
 }

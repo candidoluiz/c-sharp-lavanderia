@@ -1,6 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using tccLavanderia.model;
 using tccLavanderia.service;
+using tccLavanderia.utils;
 
 namespace tccLavanderia.view.cadastros
 {
@@ -19,31 +21,36 @@ namespace tccLavanderia.view.cadastros
         {
             InitializeComponent();
             this.valorLavagem = valorLavagem;
-            carregarCampos();
             desabilitarExcluir();
-
+            this.carregarCombos();
+            this.limparCampos();
+            carregarCampos();
         }
 
         private void carregarCampos()
         {
             txtValor.Text = valorLavagem.valor.ToString();
-            cbLavagem.DataSource = lavagemService.pesquisar(null, null);
-            cbLavanderia.DataSource = lavanderiaService.pesquisar(null, null);
+            txtCod.Text = Geral.removerZero(valorLavagem.id);                                             
+            if (!String.IsNullOrWhiteSpace(valorLavagem.lavagem.processo))
+                cbLavagem.SelectedValue = valorLavagem.lavagem.id;
+            if (!String.IsNullOrWhiteSpace(valorLavagem.lavanderia.nome))
+                cbLavanderia.SelectedValue = valorLavagem.lavanderia.id;
+        }
+
+        private void carregarCombos()
+        {
             cbLavagem.ValueMember = "cod";
             cbLavagem.DisplayMember = "processo";
+            cbLavagem.DataSource = lavagemService.pesquisar(null, null);
+
             cbLavanderia.ValueMember = "cod";
             cbLavanderia.DisplayMember = "nome";
-            cbLavanderia.SelectedIndex = -1;
-            cbLavagem.SelectedIndex = -1;
-
+            cbLavanderia.DataSource = lavanderiaService.pesquisar(null, null);
         }
 
         private void desabilitarExcluir()
         {
-            if (valorLavagem.id == 0)
-            {
-                btnExcluir.Enabled = false;
-            }
+            btnExcluir.Enabled = valorLavagem.id == 0 ? false : true;
         }
 
         private void btnExcluir_Click(object sender, System.EventArgs e)
@@ -58,7 +65,7 @@ namespace tccLavanderia.view.cadastros
 
         private bool validarCampos()
         {
-            if (string.IsNullOrWhiteSpace(txtValor.Text) ||
+            if (string.IsNullOrWhiteSpace(txtValor.Text) || 
                 cbLavanderia.SelectedIndex < 0 || cbLavagem.SelectedIndex < 0)
             {
                 return false;

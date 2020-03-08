@@ -177,7 +177,7 @@ namespace tccLavanderia.dao
                 "(@id is null or r.id = @id) " +
                 "AND " +
                 "(@modelo is null or r.modelo = @modelo)";
-
+            roupa = new Roupa();
             try
             {
                 con.conectar();
@@ -188,7 +188,7 @@ namespace tccLavanderia.dao
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    roupa = new Roupa();
+                    
                     tecido = tecidoService.consultarId(int.Parse(dr["tecido_id"].ToString()));
                     tipo = tipoService.consultarId(int.Parse(dr["tipo_id"].ToString()));
                     lavagem = lavagemService.listarLavagem(int.Parse(dr["id"].ToString()));

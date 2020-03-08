@@ -9,8 +9,8 @@
 
         public ValorLavagem()
         {
-            new Lavanderia();
-            new Lavagem();
+           lavanderia = new Lavanderia();
+            lavagem = new Lavagem();
         }
 
         public ValorLavagem(int id, Lavanderia lavanderia, Lavagem lavagem, double valor )
