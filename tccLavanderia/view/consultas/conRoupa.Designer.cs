@@ -163,7 +163,7 @@
             this.btnEditar.Image = global::tccLavanderia.Properties.Resources.pencil;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(58, 39);
+            this.btnEditar.Size = new System.Drawing.Size(57, 39);
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -198,6 +198,7 @@
             this.btnSair.Size = new System.Drawing.Size(41, 39);
             this.btnSair.Text = "SAIR";
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // groupBox1
             // 

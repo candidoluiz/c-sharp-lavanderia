@@ -75,5 +75,10 @@ namespace tccLavanderia.view
                 this.Dispose();
             }
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

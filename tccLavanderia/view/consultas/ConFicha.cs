@@ -45,5 +45,10 @@ namespace tccLavanderia.view
         {
             dataGridView1.DataSource = fichaService.pesquisar(txtCodigo.Text, txtModelo.Text, null, dtpInicio.Value, dtpFim.Value);
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
