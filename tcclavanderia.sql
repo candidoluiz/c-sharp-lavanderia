@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/03/2020 às 23:24
--- Versão do servidor: 10.1.37-MariaDB
--- Versão do PHP: 7.3.1
+-- Tempo de geração: 09-Mar-2020 às 23:39
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cidade`
+-- Estrutura da tabela `cidade`
 --
 
 CREATE TABLE `cidade` (
@@ -35,23 +35,25 @@ CREATE TABLE `cidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `cidade`
+-- Extraindo dados da tabela `cidade`
 --
 
 INSERT INTO `cidade` (`id`, `nome`, `uf`) VALUES
 (1, 'SÃO JOSÉ DO RIO PRETO', 'SP'),
-(2, 'CIA NORTE', 'PR'),
-(4, 'BIRIGUI', 'RJ');
+(2, 'CIA NORTE', 'SP'),
+(4, 'BIRIGUI', 'SP'),
+(5, 'AMERICANA', 'SP'),
+(6, 'SÃO PAULO', 'SP');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `empresa`
+-- Estrutura da tabela `empresa`
 --
 
 CREATE TABLE `empresa` (
   `id` int(11) NOT NULL,
-  `nome` int(150) NOT NULL,
+  `nome` varchar(150) NOT NULL,
   `cnpj` varchar(150) NOT NULL,
   `endereco` varchar(150) NOT NULL,
   `numero` varchar(10) NOT NULL,
@@ -60,10 +62,17 @@ CREATE TABLE `empresa` (
   `cidade_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`id`, `nome`, `cnpj`, `endereco`, `numero`, `bairro`, `cep`, `cidade_id`) VALUES
+(1, 'EMPRESA01', '9999999999', 'RUA TARÇO', '21', 'ALVORADA', '16250000', 1);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `ficha`
+-- Estrutura da tabela `ficha`
 --
 
 CREATE TABLE `ficha` (
@@ -71,13 +80,21 @@ CREATE TABLE `ficha` (
   `lavanderia_id` int(11) NOT NULL,
   `data` datetime NOT NULL,
   `roupa_id` int(11) NOT NULL,
-  `quantidade` int(11) NOT NULL
+  `quantidade` int(11) NOT NULL,
+  `empresa_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `ficha`
+--
+
+INSERT INTO `ficha` (`id`, `lavanderia_id`, `data`, `roupa_id`, `quantidade`, `empresa_id`) VALUES
+(1, 18, '2020-03-09 00:00:00', 16, 324, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `lavagem`
+-- Estrutura da tabela `lavagem`
 --
 
 CREATE TABLE `lavagem` (
@@ -86,7 +103,7 @@ CREATE TABLE `lavagem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `lavagem`
+-- Extraindo dados da tabela `lavagem`
 --
 
 INSERT INTO `lavagem` (`id`, `processo`) VALUES
@@ -97,7 +114,7 @@ INSERT INTO `lavagem` (`id`, `processo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `lavanderia`
+-- Estrutura da tabela `lavanderia`
 --
 
 CREATE TABLE `lavanderia` (
@@ -112,7 +129,7 @@ CREATE TABLE `lavanderia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `lavanderia`
+-- Extraindo dados da tabela `lavanderia`
 --
 
 INSERT INTO `lavanderia` (`id`, `nome`, `cnpj`, `endereco`, `numero`, `bairro`, `cep`, `cidade_id`) VALUES
@@ -132,7 +149,7 @@ INSERT INTO `lavanderia` (`id`, `nome`, `cnpj`, `endereco`, `numero`, `bairro`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `roupa`
+-- Estrutura da tabela `roupa`
 --
 
 CREATE TABLE `roupa` (
@@ -145,11 +162,10 @@ CREATE TABLE `roupa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `roupa`
+-- Extraindo dados da tabela `roupa`
 --
 
 INSERT INTO `roupa` (`id`, `tipo_id`, `ano`, `modelo`, `tecido_id`, `estacao`) VALUES
-(1, 2, '2000', '200U', 4, 'PRIMAVERA'),
 (3, 2, '2020', '658U', 4, 'VERÃO'),
 (4, 2, '2020', '500U', 1, 'PRIMAVERA/VERÃO'),
 (5, 2, '2019', '300U', 4, 'PRIMAVERA'),
@@ -157,14 +173,13 @@ INSERT INTO `roupa` (`id`, `tipo_id`, `ano`, `modelo`, `tecido_id`, `estacao`) V
 (9, 2, '2020', 'R547', 1, 'OUTONO'),
 (10, 2, '98', '987', 4, 'PRIMAVERA'),
 (11, 1, '98', '89Y', 2, 'PRIMAVERA/VERÃO'),
-(12, 1, '98', '89Y', 2, 'PRIMAVERA/VERÃO'),
 (14, 2, '32', '3232T', 2, 'PRIMAVERA'),
 (16, 1, '32', '323R', 4, 'PRIMAVERA');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `roupa_lavagem`
+-- Estrutura da tabela `roupa_lavagem`
 --
 
 CREATE TABLE `roupa_lavagem` (
@@ -174,11 +189,10 @@ CREATE TABLE `roupa_lavagem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `roupa_lavagem`
+-- Extraindo dados da tabela `roupa_lavagem`
 --
 
 INSERT INTO `roupa_lavagem` (`id`, `roupa_id`, `lavagem_id`) VALUES
-(1, 1, 4),
 (4, 4, 1),
 (5, 4, 1),
 (6, 4, 1),
@@ -190,9 +204,6 @@ INSERT INTO `roupa_lavagem` (`id`, `roupa_id`, `lavagem_id`) VALUES
 (41, 10, 4),
 (42, 10, 3),
 (43, 10, 2),
-(47, 12, 3),
-(48, 12, 3),
-(49, 12, 3),
 (50, 13, 3),
 (51, 13, 2),
 (52, 13, 4),
@@ -214,7 +225,7 @@ INSERT INTO `roupa_lavagem` (`id`, `roupa_id`, `lavagem_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tecido`
+-- Estrutura da tabela `tecido`
 --
 
 CREATE TABLE `tecido` (
@@ -224,7 +235,7 @@ CREATE TABLE `tecido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `tecido`
+-- Extraindo dados da tabela `tecido`
 --
 
 INSERT INTO `tecido` (`id`, `nome`, `composicao`) VALUES
@@ -235,7 +246,7 @@ INSERT INTO `tecido` (`id`, `nome`, `composicao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tipo`
+-- Estrutura da tabela `tipo`
 --
 
 CREATE TABLE `tipo` (
@@ -244,7 +255,7 @@ CREATE TABLE `tipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `tipo`
+-- Extraindo dados da tabela `tipo`
 --
 
 INSERT INTO `tipo` (`id`, `nome`) VALUES
@@ -257,7 +268,7 @@ INSERT INTO `tipo` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `valor_lavagem`
+-- Estrutura da tabela `valor_lavagem`
 --
 
 CREATE TABLE `valor_lavagem` (
@@ -268,91 +279,100 @@ CREATE TABLE `valor_lavagem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Índices de tabelas apagadas
+-- Extraindo dados da tabela `valor_lavagem`
+--
+
+INSERT INTO `valor_lavagem` (`id`, `lavagem_id`, `lavanderia_id`, `valor`) VALUES
+(1, 4, 18, 3.24),
+(2, 3, 18, 5),
+(3, 2, 18, 4.01);
+
+--
+-- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `cidade`
+-- Índices para tabela `cidade`
 --
 ALTER TABLE `cidade`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `empresa`
+-- Índices para tabela `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `ficha`
+-- Índices para tabela `ficha`
 --
 ALTER TABLE `ficha`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `lavagem`
+-- Índices para tabela `lavagem`
 --
 ALTER TABLE `lavagem`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `lavanderia`
+-- Índices para tabela `lavanderia`
 --
 ALTER TABLE `lavanderia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `roupa`
+-- Índices para tabela `roupa`
 --
 ALTER TABLE `roupa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Índices de tabela `roupa_lavagem`
+-- Índices para tabela `roupa_lavagem`
 --
 ALTER TABLE `roupa_lavagem`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tecido`
+-- Índices para tabela `tecido`
 --
 ALTER TABLE `tecido`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `tipo`
+-- Índices para tabela `tipo`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `valor_lavagem`
+-- Índices para tabela `valor_lavagem`
 --
 ALTER TABLE `valor_lavagem`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `ficha`
 --
 ALTER TABLE `ficha`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `lavagem`
@@ -394,7 +414,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de tabela `valor_lavagem`
 --
 ALTER TABLE `valor_lavagem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

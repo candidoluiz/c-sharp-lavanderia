@@ -77,6 +77,7 @@
     <Compile Include="dao\TecidoDao.cs" />
     <Compile Include="dao\TipoDao.cs" />
     <Compile Include="dao\ValorLavagemDao.cs" />
+    <Compile Include="dto\FichaDto.cs" />
     <Compile Include="model\Cidade.cs" />
     <Compile Include="model\Empresa.cs" />
     <Compile Include="model\Estacao.cs" />
