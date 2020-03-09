@@ -131,10 +131,7 @@ namespace tccLavanderia.view
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
+            Geral.digitarSoNumeros(e);           
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

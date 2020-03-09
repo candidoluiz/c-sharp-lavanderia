@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace tccLavanderia.utils
 {
@@ -24,6 +25,14 @@ namespace tccLavanderia.utils
         public static int largura()
         {
             return 1280;
+        }
+
+        public static void digitarSoNumeros(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
