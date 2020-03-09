@@ -28,6 +28,7 @@ namespace tccLavanderia.view
         {
             cadFicha = new CadFicha(new Ficha());
             cadFicha.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -37,6 +38,7 @@ namespace tccLavanderia.view
             ficha = fichaService.consultarId(edit);
             cadFicha = new CadFicha(ficha);
             cadFicha.ShowDialog();
+            this.caregarDataGrid();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

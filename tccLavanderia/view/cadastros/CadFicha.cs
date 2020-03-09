@@ -41,7 +41,9 @@ namespace tccLavanderia.view
             if(!String.IsNullOrWhiteSpace(ficha.lavanderia.nome))
                 cbLavanderia.SelectedValue = ficha.lavanderia.id;
             if(!String.IsNullOrWhiteSpace(ficha.empresa.nome))
-                cbEmpresa.SelectedValue = ficha.empresa.id;           
+                cbEmpresa.SelectedValue = ficha.empresa.id;
+            if (!String.IsNullOrWhiteSpace(ficha.roupa.modelo))
+                this.carregarCamposInformacao();           
         }
 
         private void carregarCombos()
@@ -144,12 +146,8 @@ namespace tccLavanderia.view
         {
             try
             {
-                lbLavagen.Items.Clear();
-                roupa = roupaService.consultarId(null, txtModelo.Text);
-                foreach (Lavagem r in roupa.lavagens)
-                    lbLavagen.Items.Add(r.processo);
-                    
-                lbLavagen.EndUpdate();
+                lbLavagen.Items.Clear();                
+                this.carregarCamposInformacao();                                    
                 txtTecido.Text = roupa.tecido.nome;
                 txtTipo.Text = roupa.tipo.nome;
                 txtAno.Text = roupa.ano;
@@ -184,6 +182,14 @@ namespace tccLavanderia.view
                 
             }
            
+        }
+
+        private void carregarCamposInformacao()
+        {
+            roupa = roupaService.consultarId(null, txtModelo.Text);
+            foreach (Lavagem r in roupa.lavagens)
+                lbLavagen.Items.Add(r.processo);
+            lbLavagen.EndUpdate();
         }
 
     }

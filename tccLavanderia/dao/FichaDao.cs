@@ -113,7 +113,7 @@ namespace tccLavanderia.dao
             string pDataInicio = dataInicio.ToString("yyyy/MM/dd");
             string pDataFim =dataFim.ToString("yyyy/MM/dd");
 
-            sql = "select f.id Cod, r.modelo Modelo, tp.nome Tipo, e.nome Empresa, lav.nome Lavanderia, f.data Data, f.quantidade Quantidade, vl.valor 'Valor Unitario', (f.quantidade*vl.valor) Total  from ficha f " +
+            sql = "select f.id Cod, r.modelo Modelo, tp.nome Tipo, e.nome Empresa, lav.nome Lavanderia, f.data Data, f.quantidade Quantidade, CAST(sum(vl.valor)  as DECIMAL(12,2)) 'Valor Unitário', cast((f.quantidade*sum(vl.valor)) as DECIMAL(12,2)) Total  from ficha f " +
                     "INNER JOIN roupa r ON r.id = f.roupa_id " +
                     "INNER JOIN tecido t ON t.id =r.tecido_id " +
                     "INNER JOIN tipo tp ON tp.id=r.tipo_id " +
@@ -178,6 +178,8 @@ namespace tccLavanderia.dao
                     ficha.quantidade = int.Parse(dr["quantidade"].ToString());
                     ficha.roupa = roupa;                    
                 }
+                con.desconectar();
+                dr.Close();
                 return ficha;
             }
             catch (Exception)
