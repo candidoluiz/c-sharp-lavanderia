@@ -51,6 +51,7 @@
             this.lbProcessoAdicionados = new System.Windows.Forms.ListBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,8 @@
             this.btnSalvar,
             this.toolStripSeparator1,
             this.btnExcluir,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.btnSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(984, 42);
@@ -292,6 +294,17 @@
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
+            // btnSair
+            // 
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(41, 39);
+            this.btnSair.Text = "SAIR";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // CadRoupa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,5 +354,6 @@
         private System.Windows.Forms.ListBox lbProcessoAdicionados;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.ToolStripButton btnSair;
     }
 }

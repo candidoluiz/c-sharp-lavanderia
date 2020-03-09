@@ -18,7 +18,6 @@ namespace tccLavanderia.view
             InitializeComponent();
             carregarCombo();
             caregarDataGrid();
-            this.Size = new Size(Geral.largura(),Geral.altura());
         }
 
         private void carregarCombo()
@@ -61,6 +60,11 @@ namespace tccLavanderia.view
             cadRoupa = new CadRoupa(roupa);
             cadRoupa.ShowDialog();
             caregarDataGrid();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

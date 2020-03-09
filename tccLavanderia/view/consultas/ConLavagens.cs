@@ -46,7 +46,7 @@ namespace tccLavanderia.view
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
         }
 
         private void caregarDataGrid()
