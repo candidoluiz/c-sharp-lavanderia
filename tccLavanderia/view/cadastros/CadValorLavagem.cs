@@ -112,5 +112,13 @@ namespace tccLavanderia.view.cadastros
         {
             this.Dispose();
         }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
