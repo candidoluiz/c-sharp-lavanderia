@@ -33,6 +33,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.cbTecido = new System.Windows.Forms.ComboBox();
@@ -42,7 +43,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtAno = new System.Windows.Forms.MaskedTextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.lbProcessoAdicionados = new System.Windows.Forms.ListBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
+            this.txtAno = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,8 +103,20 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 42);
             // 
+            // btnSair
+            // 
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(41, 39);
+            this.btnSair.Text = "SAIR";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAno);
             this.groupBox1.Controls.Add(this.cbTipo);
             this.groupBox1.Controls.Add(this.cbTecido);
             this.groupBox1.Controls.Add(this.txtModelo);
@@ -113,7 +125,6 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtAno);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -201,15 +212,6 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "TIPO";
             // 
-            // txtAno
-            // 
-            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAno.Location = new System.Drawing.Point(10, 76);
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(225, 26);
-            this.txtAno.TabIndex = 21;
-            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress);
-            // 
             // txtId
             // 
             this.txtId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -294,16 +296,15 @@
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
-            // btnSair
+            // txtAno
             // 
-            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
-            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(41, 39);
-            this.btnSair.Text = "SAIR";
-            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAno.Location = new System.Drawing.Point(10, 74);
+            this.txtAno.MaxLength = 4;
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(225, 26);
+            this.txtAno.TabIndex = 22;
+            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress_1);
             // 
             // CadRoupa
             // 
@@ -338,7 +339,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbColecao;
         private System.Windows.Forms.TextBox txtModelo;
-        private System.Windows.Forms.MaskedTextBox txtAno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -355,5 +355,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.ToolStripButton btnSair;
+        private System.Windows.Forms.TextBox txtAno;
     }
 }
