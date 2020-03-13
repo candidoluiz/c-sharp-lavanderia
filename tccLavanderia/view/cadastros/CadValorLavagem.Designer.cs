@@ -139,6 +139,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(183, 26);
             this.txtValor.TabIndex = 31;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // label4
@@ -190,6 +191,7 @@
             this.cbLavanderia.Name = "cbLavanderia";
             this.cbLavanderia.Size = new System.Drawing.Size(509, 28);
             this.cbLavanderia.TabIndex = 25;
+            this.cbLavanderia.SelectedIndexChanged += new System.EventHandler(this.cbLavanderia_SelectedIndexChanged);
             // 
             // txtCod
             // 
