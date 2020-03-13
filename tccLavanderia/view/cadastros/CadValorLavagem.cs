@@ -31,18 +31,15 @@ namespace tccLavanderia.view.cadastros
         {
             txtValor.Text = valorLavagem.valor.ToString();
             txtCod.Text = Geral.removerZero(valorLavagem.id);                                             
-            if (!String.IsNullOrWhiteSpace(valorLavagem.lavagem.processo))
-                cbLavagem.SelectedValue = valorLavagem.lavagem.id;
+                         
             if (!String.IsNullOrWhiteSpace(valorLavagem.lavanderia.nome))
                 cbLavanderia.SelectedValue = valorLavagem.lavanderia.id;
         }
 
         private void carregarCombos()
         {
-            cbLavagem.ValueMember = "cod";
+            cbLavagem.ValueMember = "id";
             cbLavagem.DisplayMember = "processo";
-            cbLavagem.DataSource = lavagemService.pesquisar(null, null);
-
             cbLavanderia.ValueMember = "cod";
             cbLavanderia.DisplayMember = "nome";
             cbLavanderia.DataSource = lavanderiaService.pesquisar(null, null);
@@ -65,7 +62,7 @@ namespace tccLavanderia.view.cadastros
 
         private bool validarCampos()
         {
-            if (string.IsNullOrWhiteSpace(txtValor.Text) || 
+            if (double.Parse(txtValor.Text) == 0 ||
                 cbLavanderia.SelectedIndex < 0 || cbLavagem.SelectedIndex < 0)
             {
                 return false;
@@ -86,25 +83,33 @@ namespace tccLavanderia.view.cadastros
 
         private void btnSalvar_Click(object sender, System.EventArgs e)
         {
-            if (this.validarCampos())
+            
+            try
             {
-                lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
-                lavagem.id = int.Parse(cbLavagem.SelectedValue.ToString());
-                valorLavagem = new ValorLavagem(
-                valorLavagem.id,
-                lavanderia,
-                lavagem,
-                double.Parse(txtValor.Text));
-
-                if (this.valorLavagemService.salvar(valorLavagem))
+                 if (this.validarCampos())
                 {
-                    MessageBox.Show("Valor da lavagem salvo com sucesso", "Valor salvo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.limparCampos();
+                    lavanderia.id = int.Parse(cbLavanderia.SelectedValue.ToString());
+                    lavagem.id = int.Parse(cbLavagem.SelectedValue.ToString());
+                    valorLavagemService.consultarValorLavagem(lavanderia.id);
+                    valorLavagem = new ValorLavagem(
+                    valorLavagem.id,
+                    lavanderia,
+                    lavagem,
+                    double.Parse(txtValor.Text));
+
+                    if (this.valorLavagemService.salvar(valorLavagem))
+                    {
+                        MessageBox.Show("Valor da lavagem salvo com sucesso", "Valor salvo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.limparCampos();
+                    }
                 }
-            }
-            else
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch (Exception ex)
             {
-                MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,6 +124,42 @@ namespace tccLavanderia.view.cadastros
             {
                 e.Handled = true;
             }
+        }
+
+        private void cbLavanderia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLavanderia.SelectedIndex != -1)
+            {
+                cbLavagem.DataSource = valorLavagemService.verificarValoresLavagem(int.Parse(cbLavanderia.SelectedValue.ToString()));
+            }
+            
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            monetario(ref txtValor);
+        }
+
+        private static void monetario(ref TextBox txtValor)
+        {
+            string numero = string.Empty;
+            double valor = 0;
+
+            try
+            {
+                numero = txtValor.Text.Replace(",", "").Replace(".", "");
+                if (numero.Equals(""))
+                    numero = "";
+
+                numero = numero.PadLeft(3, '0');
+
+                if (numero.Length > 3 & numero.Substring(0,1) == "0")
+                    numero = numero.Substring(1,numero.Length -1);
+                valor = Convert.ToDouble(numero) / 100;
+                txtValor.Text = string.Format("{0:N}", valor);
+                txtValor.SelectionStart = txtValor.Text.Length;
+            }
+            catch (Exception) { };
         }
     }
 }
