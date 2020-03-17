@@ -8,6 +8,7 @@ namespace tccLavanderia.service
     public class ValorLavagemService
     {
         ValorLavagemDao valorLavagemDao = new ValorLavagemDao();
+        LavanderiaService lavandariaService = new LavanderiaService();
 
 
         public ValorLavagem consultarId(int id)
@@ -36,7 +37,8 @@ namespace tccLavanderia.service
         public DataTable pesquisar(string lavanderia, string lavagem)
         {
             lavagem = string.IsNullOrWhiteSpace(lavagem) ? null : lavagem;
-            
+            lavanderia = string.IsNullOrWhiteSpace(lavanderia) ? null : lavanderia;
+
             return valorLavagemDao.pesquisar(lavanderia, lavagem);
         }
 
@@ -62,6 +64,11 @@ namespace tccLavanderia.service
         public DataTable verificarValoresLavagem(int id)
         {
             return valorLavagemDao.verificarValoresLavagem(id);
+        }
+
+        public DataTable consultarLavanderia()
+        {
+            return lavandariaService.pesquisar(null, null);
         }
     }
 }

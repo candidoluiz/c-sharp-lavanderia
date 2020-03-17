@@ -16,6 +16,15 @@ namespace tccLavanderia.view
         {
             InitializeComponent();
             caregarDataGrid();
+            consultarLavanderia();
+            cbLavanderia.SelectedValue = -1;
+        }
+
+        private void consultarLavanderia()
+        {
+            cbLavanderia.ValueMember = "nome";
+            cbLavanderia.DisplayMember = "nome";
+            cbLavanderia.DataSource = valorLavagemService.consultarLavanderia();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -43,6 +52,12 @@ namespace tccLavanderia.view
         private void txtSair_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string valor = cbLavanderia.SelectedIndex == -1 ? null : cbLavanderia.SelectedValue.ToString();
+            dataGridView1.DataSource = valorLavagemService.pesquisar(valor, txtLavagem.Text);
         }
     }
 }

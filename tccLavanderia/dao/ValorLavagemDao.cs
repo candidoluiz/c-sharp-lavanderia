@@ -222,6 +222,5 @@ namespace tccLavanderia.dao
                 throw;
             }
         }
-
     }
 }
