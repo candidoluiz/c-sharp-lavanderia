@@ -69,7 +69,7 @@
             this.btnPesquisar,
             this.toolStripSeparator3,
 
-            this.btnImprimir});
+            this.btnImprimir,
 
             this.btnSair});
 
