@@ -31,14 +31,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
@@ -50,21 +49,19 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lbLavagen = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtColecao = new System.Windows.Forms.TextBox();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.txtTecido = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtComposicao = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbLavanderia = new System.Windows.Forms.ComboBox();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.txtComposicao = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtTecido = new System.Windows.Forms.TextBox();
-            this.txtAno = new System.Windows.Forms.TextBox();
-            this.txtColecao = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,10 +73,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalvar,
             this.toolStripSeparator1,
-            this.btnImprimir,
-            this.toolStripSeparator2,
-            this.btnExcluir,
-            this.toolStripSeparator3});
+            this.btnExcluir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
@@ -92,7 +86,7 @@
             this.btnSalvar.Image = global::tccLavanderia.Properties.Resources.disk;
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(62, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(60, 39);
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -101,22 +95,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 42);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnImprimir.Image = global::tccLavanderia.Properties.Resources.printer;
-            this.btnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(139, 39);
-            this.btnImprimir.Text = "SALVAR E IMPRIMIR";
-            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 42);
             // 
             // btnExcluir
             // 
@@ -127,11 +105,6 @@
             this.btnExcluir.Size = new System.Drawing.Size(66, 39);
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 42);
             // 
             // txtId
             // 
@@ -190,6 +163,26 @@
             this.groupBox1.Size = new System.Drawing.Size(1242, 526);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Red;
+            this.lblTotal.Location = new System.Drawing.Point(661, 395);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(16, 24);
+            this.lblTotal.TabIndex = 41;
+            this.lblTotal.Text = "-";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(6, 82);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(200, 26);
+            this.txtModelo.TabIndex = 0;
+            this.txtModelo.Leave += new System.EventHandler(this.txtModelo_Leave);
             // 
             // label15
             // 
@@ -302,6 +295,134 @@
             this.label9.TabIndex = 30;
             this.label9.Text = "LAVANDERIA";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtColecao);
+            this.groupBox2.Controls.Add(this.txtAno);
+            this.groupBox2.Controls.Add(this.txtTecido);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtComposicao);
+            this.groupBox2.Controls.Add(this.txtTipo);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(6, 118);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1230, 101);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtColecao
+            // 
+            this.txtColecao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtColecao.Enabled = false;
+            this.txtColecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtColecao.Location = new System.Drawing.Point(530, 39);
+            this.txtColecao.Name = "txtColecao";
+            this.txtColecao.ReadOnly = true;
+            this.txtColecao.Size = new System.Drawing.Size(250, 26);
+            this.txtColecao.TabIndex = 31;
+            this.txtColecao.TabStop = false;
+            // 
+            // txtAno
+            // 
+            this.txtAno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAno.Enabled = false;
+            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAno.Location = new System.Drawing.Point(416, 39);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.ReadOnly = true;
+            this.txtAno.Size = new System.Drawing.Size(108, 26);
+            this.txtAno.TabIndex = 30;
+            this.txtAno.TabStop = false;
+            // 
+            // txtTecido
+            // 
+            this.txtTecido.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTecido.Enabled = false;
+            this.txtTecido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTecido.Location = new System.Drawing.Point(10, 39);
+            this.txtTecido.Name = "txtTecido";
+            this.txtTecido.ReadOnly = true;
+            this.txtTecido.Size = new System.Drawing.Size(190, 26);
+            this.txtTecido.TabIndex = 22;
+            this.txtTecido.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(786, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "COMPOSIÇÃO";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 20);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "TECIDO";
+            // 
+            // txtComposicao
+            // 
+            this.txtComposicao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtComposicao.Enabled = false;
+            this.txtComposicao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComposicao.Location = new System.Drawing.Point(786, 39);
+            this.txtComposicao.Name = "txtComposicao";
+            this.txtComposicao.ReadOnly = true;
+            this.txtComposicao.Size = new System.Drawing.Size(438, 26);
+            this.txtComposicao.TabIndex = 26;
+            this.txtComposicao.TabStop = false;
+            // 
+            // txtTipo
+            // 
+            this.txtTipo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTipo.Enabled = false;
+            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipo.Location = new System.Drawing.Point(206, 39);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.ReadOnly = true;
+            this.txtTipo.Size = new System.Drawing.Size(204, 26);
+            this.txtTipo.TabIndex = 24;
+            this.txtTipo.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(206, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "TIPO";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(530, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "COLEÇÃO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(416, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "ANO";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -322,154 +443,6 @@
             this.cbLavanderia.Size = new System.Drawing.Size(385, 28);
             this.cbLavanderia.TabIndex = 2;
             this.cbLavanderia.SelectedIndexChanged += new System.EventHandler(this.cbLavanderia_SelectedIndexChanged);
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModelo.Location = new System.Drawing.Point(6, 82);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(200, 26);
-            this.txtModelo.TabIndex = 0;
-            this.txtModelo.Leave += new System.EventHandler(this.txtModelo_Leave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(416, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "ANO";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(530, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 20);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "COLEÇÃO";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(206, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "TIPO";
-            // 
-            // txtTipo
-            // 
-            this.txtTipo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTipo.Enabled = false;
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(206, 39);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.ReadOnly = true;
-            this.txtTipo.Size = new System.Drawing.Size(204, 26);
-            this.txtTipo.TabIndex = 24;
-            this.txtTipo.TabStop = false;
-            // 
-            // txtComposicao
-            // 
-            this.txtComposicao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtComposicao.Enabled = false;
-            this.txtComposicao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComposicao.Location = new System.Drawing.Point(786, 39);
-            this.txtComposicao.Name = "txtComposicao";
-            this.txtComposicao.ReadOnly = true;
-            this.txtComposicao.Size = new System.Drawing.Size(438, 26);
-            this.txtComposicao.TabIndex = 26;
-            this.txtComposicao.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 20);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "TECIDO";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(786, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 20);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "COMPOSIÇÃO";
-            // 
-            // txtTecido
-            // 
-            this.txtTecido.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTecido.Enabled = false;
-            this.txtTecido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTecido.Location = new System.Drawing.Point(10, 39);
-            this.txtTecido.Name = "txtTecido";
-            this.txtTecido.ReadOnly = true;
-            this.txtTecido.Size = new System.Drawing.Size(190, 26);
-            this.txtTecido.TabIndex = 22;
-            this.txtTecido.TabStop = false;
-            // 
-            // txtAno
-            // 
-            this.txtAno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtAno.Enabled = false;
-            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAno.Location = new System.Drawing.Point(416, 39);
-            this.txtAno.Name = "txtAno";
-            this.txtAno.ReadOnly = true;
-            this.txtAno.Size = new System.Drawing.Size(108, 26);
-            this.txtAno.TabIndex = 30;
-            this.txtAno.TabStop = false;
-            // 
-            // txtColecao
-            // 
-            this.txtColecao.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtColecao.Enabled = false;
-            this.txtColecao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColecao.Location = new System.Drawing.Point(530, 39);
-            this.txtColecao.Name = "txtColecao";
-            this.txtColecao.ReadOnly = true;
-            this.txtColecao.Size = new System.Drawing.Size(250, 26);
-            this.txtColecao.TabIndex = 31;
-            this.txtColecao.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtColecao);
-            this.groupBox2.Controls.Add(this.txtAno);
-            this.groupBox2.Controls.Add(this.txtTecido);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtComposicao);
-            this.groupBox2.Controls.Add(this.txtTipo);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(6, 118);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1230, 101);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Red;
-            this.lblTotal.Location = new System.Drawing.Point(661, 395);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(16, 24);
-            this.lblTotal.TabIndex = 41;
-            this.lblTotal.Text = "-";
             // 
             // CadFicha
             // 
@@ -499,10 +472,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnSalvar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnImprimir;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnExcluir;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

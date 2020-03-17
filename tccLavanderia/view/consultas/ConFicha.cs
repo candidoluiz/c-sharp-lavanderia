@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using tccLavanderia.model;
+using tccLavanderia.print;
 using tccLavanderia.service;
 
 namespace tccLavanderia.view
@@ -10,13 +13,15 @@ namespace tccLavanderia.view
         private CadFicha cadFicha;
         private Ficha ficha = new Ficha();
         private FichaService fichaService = new FichaService();
-        DateTime date = DateTime.Now;
+        private DateTime date = DateTime.Now;
+        private PrintFichaView printFichaView;
 
         public ConFicha()
         {
-            InitializeComponent();
-            this.caregarDataGrid();
+            InitializeComponent();            
             dtpInicio.Value = new DateTime(date.Year, date.Month, 1);
+            this.caregarDataGrid();
+            this.carregarCombo();
         }
 
         private void caregarDataGrid()
@@ -44,6 +49,19 @@ namespace tccLavanderia.view
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = fichaService.pesquisar(txtCodigo.Text, txtModelo.Text, null, dtpInicio.Value, dtpFim.Value);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            DataSetRelatorio dt = fichaService.imprimirFicha(dataGridView1);
+            printFichaView = new PrintFichaView(dt);
+            printFichaView.ShowDialog();           
+        }
+        private void carregarCombo()
+        {
+            cbLavanderia.ValueMember = "Cod";
+            cbLavanderia.DisplayMember = "nome";
+            cbLavanderia.DataSource = fichaService.carregarCombo();
         }
     }
 }

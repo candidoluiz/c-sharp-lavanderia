@@ -18,7 +18,6 @@ namespace tccLavanderia.view
             InitializeComponent();
             carregarCombo();
             caregarDataGrid();
-            this.Size = new Size(Geral.largura(),Geral.altura());
         }
 
         private void carregarCombo()
