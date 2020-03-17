@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Windows.Forms;
 using tccLavanderia.model;
-using tccLavanderia.print;
 using tccLavanderia.service;
 using tccLavanderia.utils;
 
@@ -133,6 +132,11 @@ namespace tccLavanderia.view
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
         {
             Geral.digitarSoNumeros(e);           
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+           
         }
 
         private void txtModelo_Leave(object sender, EventArgs e)
