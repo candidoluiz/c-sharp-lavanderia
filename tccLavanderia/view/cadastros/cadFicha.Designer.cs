@@ -31,7 +31,10 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,9 +65,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbLavanderia = new System.Windows.Forms.ComboBox();
-
             this.btnSair = new System.Windows.Forms.ToolStripButton();
-
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,10 +77,13 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalvar,
             this.toolStripSeparator1,
+
+            this.btnImprimir,
+            this.toolStripSeparator2,
+
             this.btnExcluir,
             this.btnExcluir,
             this.btnSair});
-
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
@@ -117,6 +121,11 @@
             this.btnExcluir.Size = new System.Drawing.Size(66, 39);
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 42);
             // 
             // txtId
             // 
@@ -394,7 +403,6 @@
             this.txtComposicao.TabStop = false;
             // 
             // txtTipo
-
             // 
             this.txtTipo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTipo.Enabled = false;
@@ -456,7 +464,17 @@
             this.cbLavanderia.Size = new System.Drawing.Size(385, 28);
             this.cbLavanderia.TabIndex = 2;
             this.cbLavanderia.SelectedIndexChanged += new System.EventHandler(this.cbLavanderia_SelectedIndexChanged);
-
+            // 
+            // btnSair
+            // 
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSair.Image = global::tccLavanderia.Properties.Resources.door_out;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(41, 39);
+            this.btnSair.Text = "SAIR";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // CadFicha
             // 
@@ -486,7 +504,10 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnSalvar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btnImprimir;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnExcluir;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
