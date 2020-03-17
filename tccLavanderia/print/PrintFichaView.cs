@@ -19,7 +19,7 @@ namespace tccLavanderia.print
         private void PrintFichaView_Load(object sender, EventArgs e)
         {
             this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSetRelatorio", dtList.Tables[1]));
+            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSetRelatorio", dtList.Tables[0]));
             this.reportViewer1.RefreshReport();
             
         }
