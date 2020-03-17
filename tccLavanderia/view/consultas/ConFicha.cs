@@ -62,6 +62,7 @@ namespace tccLavanderia.view
             cbLavanderia.ValueMember = "Cod";
             cbLavanderia.DisplayMember = "nome";
             cbLavanderia.DataSource = fichaService.carregarCombo();
+        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
