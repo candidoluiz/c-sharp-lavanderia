@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using tccLavanderia.dao;
 using tccLavanderia.model;
 
@@ -34,7 +35,6 @@ namespace tccLavanderia.service
 
         public DataTable pesquisar(string lavanderia, string lavagem)
         {
-            lavanderia = string.IsNullOrWhiteSpace(lavanderia) ? null : lavanderia;
             lavagem = string.IsNullOrWhiteSpace(lavagem) ? null : lavagem;
             
             return valorLavagemDao.pesquisar(lavanderia, lavagem);
@@ -52,6 +52,16 @@ namespace tccLavanderia.service
                 throw;
             }
             
+        }
+
+        public DataTable consultarValorLavagem(int lavagem)
+        {
+            return valorLavagemDao.consultarValorLavagem(lavagem);
+        }
+
+        public DataTable verificarValoresLavagem(int id)
+        {
+            return valorLavagemDao.verificarValoresLavagem(id);
         }
     }
 }

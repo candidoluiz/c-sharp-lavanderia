@@ -185,5 +185,9 @@ namespace tccLavanderia.view
             lbLavagen.EndUpdate();
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

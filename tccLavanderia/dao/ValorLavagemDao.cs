@@ -99,7 +99,7 @@ namespace tccLavanderia.dao
             string pLavanderia = "%" + lavanderia + "%";
             string pLavagem = "%" + lavagem + "%";
 
-            sql = "select vl.id Cod, lv.nome Lavanderia, l.processo Processo, vl.valor Valor from lavagem l INNER JOIN valor_lavagem vl ON l.id = vl.lavagem_id INNER JOIN lavanderia lv ON lv.id = vl.lavanderia_id "+
+            sql = "select vl.id Cod, lv.nome Lavanderia, l.processo Processo, cast(vl.valor as decimal(12,2)) Valor from lavagem l INNER JOIN valor_lavagem vl ON l.id = vl.lavagem_id INNER JOIN lavanderia lv ON lv.id = vl.lavanderia_id " +
                 "where " +
                "(@lavagem is null or l.processo like @lavagem) " +
                "AND " +
@@ -174,7 +174,7 @@ namespace tccLavanderia.dao
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@modelo", modelo);
                 cmd.Parameters.AddWithValue("@lavanderiaId", lavanderiaId);
-               var total = cmd.ExecuteScalar();
+                var total = cmd.ExecuteScalar();
                 con.desconectar();
                 return (double)total;
             }
@@ -184,5 +184,44 @@ namespace tccLavanderia.dao
                 throw new Exception("A lavanderia selecionada não lava esse modelo");
             }
         }
+
+        public DataTable consultarValorLavagem(int lavagem )
+        {
+            sql = "select * from lavagem l " +
+                  "LEFT JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
+                  "WHERE vl.lavanderia_id is null OR vl.lavanderia_id != @id";
+
+            dt = new DataTable();
+            con.conectar();
+            cmd = new MySqlCommand(sql, con.conectar());
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@id", lavagem);
+            dt.Load(cmd.ExecuteReader());
+            con.desconectar();
+            return dt;
+        }
+
+        public DataTable verificarValoresLavagem(int id)
+        {
+            sql = "SELECT * FROM lavagem " +
+                  "where lavagem.id not in (select valor_lavagem.lavagem_id from valor_lavagem where valor_lavagem.lavanderia_id = @id )";
+
+            try
+            {
+                dt = new DataTable();
+                con.conectar();
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
+                dt.Load(cmd.ExecuteReader());
+                con.desconectar();
+                return dt;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

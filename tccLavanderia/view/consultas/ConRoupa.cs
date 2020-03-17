@@ -61,5 +61,18 @@ namespace tccLavanderia.view
             cadRoupa.ShowDialog();
             caregarDataGrid();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void txtAno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
