@@ -129,7 +129,7 @@ namespace tccLavanderia.dao
                 "AND " +
                 "(@lavanderia is null or lav.nome like @lavanderia) " +
                 "AND " +
-                "(f.data BETWEEN @inicio AND @fim ) group by f.id";
+                "(f.data BETWEEN @inicio AND @fim )";
 
             try
             {
@@ -185,40 +185,6 @@ namespace tccLavanderia.dao
             catch (Exception)
             {
                 
-                throw;
-            }
-        }
-
-        public DataTable imprimirFicha(string id)
-        {
-
-            sql = "select f.id Cod, l.id, r.modelo Modelo, lav.cnpj lavanderiaCnpj,  tp.nome Tipo, l.processo lavagens, e.nome Empresa, " +
-                "lav.nome Lavanderia, f.data Datas, f.quantidade Quantidade, CAST(vl.valor as DECIMAL (12,2)) " +
-                "valorUnitario, e.cnpj empresaCnpj, f.data from ficha f " +
-                     "INNER JOIN roupa r ON r.id = f.roupa_id " +
-                     "INNER JOIN tecido t ON t.id =r.tecido_id " +
-                     "INNER JOIN tipo tp ON tp.id=r.tipo_id " +
-                     "INNER JOIN roupa_lavagem rp ON rp.roupa_id = r.id " +
-                     "INNER JOIN lavagem l ON l.id = rp.lavagem_id " +
-                     "INNER JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
-                     "INNER JOIN lavanderia lav ON lav.id = vl.lavanderia_id " +
-                     "INNER JOIN empresa e ON e.id = f.empresa_id " +
-                 "where f.id = @id ";
-
-            try
-            {
-                dt = new DataTable();
-                con.conectar();
-                cmd = new MySqlCommand(sql, con.conectar());
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@id", id);
-                dt.Load(cmd.ExecuteReader());
-                con.desconectar();
-                return dt;
-            }
-            catch (Exception)
-            {
-
                 throw;
             }
         }

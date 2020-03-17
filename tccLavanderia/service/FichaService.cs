@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
 using tccLavanderia.dao;
 using tccLavanderia.model;
-using tccLavanderia.print;
 
 namespace tccLavanderia.service
 {
     public class FichaService
     {
         FichaDao fichaDao = new FichaDao();
-        LavanderiaService lavanderiaService = new LavanderiaService();
-        DataSetRelatorio ds;
-        DataTable dt;
 
         public bool salvar(Ficha ficha)
         {
@@ -38,31 +32,6 @@ namespace tccLavanderia.service
         public Ficha consultarId(int id)
         {
             return fichaDao.consultarId(id);
-        }
-
-        public DataSetRelatorio imprimirFicha(DataGridView linha)
-        {
-            ds = new DataSetRelatorio();
-
-
-            foreach (var item in linha.Rows)
-            {
-                DataGridViewRow row = item as DataGridViewRow;
-                if (row.Selected)
-                {
-                    dt = new DataTable();
-                    dt = fichaDao.imprimirFicha(row.Cells[0].Value.ToString());
-                    ds.Tables.Add(dt);
-
-                }
-            }
-
-            return ds;
-        }
-
-       public DataTable carregarCombo()
-        {
-            return lavanderiaService.pesquisar(null, null);
         }
     }
 }
