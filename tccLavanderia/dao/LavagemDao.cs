@@ -127,6 +127,8 @@ namespace tccLavanderia.dao
                     lavagem.id = Int16.Parse(dr["id"].ToString());
                     lavagem.processo = dr["processo"].ToString();
                 }
+                con.desconectar();
+                dr.Close();
                 return lavagem;
             }
             catch (Exception)
@@ -155,6 +157,8 @@ namespace tccLavanderia.dao
                     lavagem.processo = dr["processo"].ToString();
                     lista.Add(lavagem);
                 }
+                con.desconectar();
+                dr.Close();
                 return lista;
             }
             catch (Exception)

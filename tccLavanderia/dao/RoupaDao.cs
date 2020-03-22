@@ -106,6 +106,7 @@ namespace tccLavanderia.dao
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
+                con.desconectar();
             }
             catch (Exception)
             {

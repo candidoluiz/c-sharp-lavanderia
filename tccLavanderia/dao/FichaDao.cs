@@ -97,7 +97,8 @@ namespace tccLavanderia.dao
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", ficha.id);
                 cmd.ExecuteNonQuery();
-        
+                con.desconectar();
+
             }
             catch (Exception)
             {
@@ -181,7 +182,7 @@ namespace tccLavanderia.dao
                     ficha.roupa = roupa;                    
                 }
                 con.desconectar();
-                dr.Close();
+                dr.Close();                
                 return ficha;
             }
             catch (Exception)
