@@ -47,7 +47,7 @@ namespace tccLavanderia.repository
         {
             try
             {
-                con = new MySqlConnection();
+                //con = new MySqlConnection();
                 con.Close();
             }
             catch (Exception)

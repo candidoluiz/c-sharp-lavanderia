@@ -202,6 +202,8 @@ namespace tccLavanderia.dao
                     roupa.lavagens = lavagem;
 
                 }
+                dr.Close();
+                con.desconectar();
                 return roupa;
             }
             catch (Exception)

@@ -129,6 +129,8 @@ namespace tccLavanderia.dao
                 "AND " +
                 "(@lavanderia is null or lav.nome like @lavanderia) " +
                 "AND " +
+                "lav.id = f.lavanderia_id " +
+                "AND " +
                 "(f.data BETWEEN @inicio AND @fim ) group by f.id";
 
             try
@@ -192,9 +194,9 @@ namespace tccLavanderia.dao
         public DataTable imprimirFicha(string id)
         {
 
-            sql = "select f.id Cod, l.id, r.modelo Modelo, lav.cnpj lavanderiaCnpj,  tp.nome Tipo, l.processo lavagens, e.nome Empresa, " +
+            sql = "select f.id Cod, l.id, r.modelo Modelo,  tp.nome Tipo, l.processo lavagens, e.nome Empresa, " +
                 "lav.nome Lavanderia, f.data Datas, f.quantidade Quantidade, CAST(vl.valor as DECIMAL (12,2)) " +
-                "valorUnitario, e.cnpj empresaCnpj, f.data from ficha f " +
+                "valorUnitario from ficha f " +
                      "INNER JOIN roupa r ON r.id = f.roupa_id " +
                      "INNER JOIN tecido t ON t.id =r.tecido_id " +
                      "INNER JOIN tipo tp ON tp.id=r.tipo_id " +
@@ -203,7 +205,7 @@ namespace tccLavanderia.dao
                      "INNER JOIN valor_lavagem vl ON vl.lavagem_id = l.id " +
                      "INNER JOIN lavanderia lav ON lav.id = vl.lavanderia_id " +
                      "INNER JOIN empresa e ON e.id = f.empresa_id " +
-                 "where f.id = @id ";
+                 "where f.id = @id and  lav.id = f.lavanderia_id";
 
             try
             {

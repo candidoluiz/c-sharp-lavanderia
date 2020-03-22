@@ -43,6 +43,7 @@ namespace tccLavanderia.service
         public DataSetRelatorio imprimirFicha(DataGridView linha)
         {
             ds = new DataSetRelatorio();
+           
 
 
             foreach (var item in linha.Rows)
@@ -52,7 +53,23 @@ namespace tccLavanderia.service
                 {
                     dt = new DataTable();
                     dt = fichaDao.imprimirFicha(row.Cells[0].Value.ToString());
-                    ds.Tables.Add(dt);
+                    ds.Tables.Add(dt); /*
+                    foreach(DataRow r in dt.Rows)
+                    {
+                        DataRow dtRow = ds.Tables[0].NewRow();
+                        dtRow["cod"] = r["cod"];
+                        dtRow["data"] = r["datas"];
+                        dtRow["tipo"] = r["tipo"];
+                        dtRow["empresa"] = r["empresa"];
+                        dtRow["lavanderia"] = r["lavanderia"];
+                        dtRow["quantidade"] = r["quantidade"];
+                        dtRow["modelo"] = r["modelo"];
+                        dtRow["lavagens"] = r["lavagens"];
+                        dtRow["valorUnitario"] = r["valorUnitario"];
+                        ds.Tables[0].Rows.Add(dtRow);
+                    } */
+
+                   
 
                 }
             }
