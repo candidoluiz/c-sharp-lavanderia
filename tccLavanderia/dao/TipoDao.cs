@@ -126,6 +126,8 @@ namespace tccLavanderia.dao
                     tipo.id = Int16.Parse(dr["id"].ToString());
                     tipo.nome = dr["nome"].ToString();
                 }
+                con.desconectar();
+                dr.Close();
                 return tipo;
             }
             catch (Exception)

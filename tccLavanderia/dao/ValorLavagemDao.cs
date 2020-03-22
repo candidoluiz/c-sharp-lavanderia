@@ -84,6 +84,7 @@ namespace tccLavanderia.dao
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@id", valorLavagem.id);
                 cmd.ExecuteNonQuery();
+                con.desconectar();
 
             }
             catch (Exception)
@@ -145,6 +146,8 @@ namespace tccLavanderia.dao
                     valorLavagem.lavanderia = lavanderia;
                     valorLavagem.valor = Double.Parse(dr["valor"].ToString());                   
                 }
+                con.desconectar();
+                dr.Close();
                 return valorLavagem;
 
             }

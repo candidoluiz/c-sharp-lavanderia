@@ -130,6 +130,8 @@ namespace tccLavanderia.dao
                     tecido.composicao = dr["composicao"].ToString();
                     tecido.nome = dr["nome"].ToString();
                 }
+                con.desconectar();
+                dr.Close();
                 return tecido;
             }
             catch (Exception)

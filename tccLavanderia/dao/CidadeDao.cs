@@ -123,6 +123,8 @@ namespace tccLavanderia.dao
                     cidade.nome= dr["nome"].ToString();
                     cidade.uf= dr["uf"].ToString();
                 }
+                con.desconectar();
+                dr.Close();
                 return cidade;
             }
             catch (Exception)

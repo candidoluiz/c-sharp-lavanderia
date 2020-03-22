@@ -41,6 +41,7 @@ namespace tccLavanderia.repository
                
                 throw e;
             }
+
         }
 
         public void desconectar()
@@ -49,12 +50,14 @@ namespace tccLavanderia.repository
             {
                 //con = new MySqlConnection();
                 con.Close();
+                con.Dispose();
             }
             catch (Exception)
             {
 
                 throw;
             }
+           
         }
 
         public void executarSql(string sql)
