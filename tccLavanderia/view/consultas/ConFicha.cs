@@ -48,7 +48,7 @@ namespace tccLavanderia.view
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = fichaService.pesquisar(txtCodigo.Text, txtModelo.Text, null, dtpInicio.Value, dtpFim.Value);
+            dataGridView1.DataSource = fichaService.pesquisar(txtCodigo.Text, txtModelo.Text, cbLavanderia.Text, dtpInicio.Value, dtpFim.Value);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

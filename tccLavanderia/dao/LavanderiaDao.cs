@@ -181,6 +181,8 @@ namespace tccLavanderia.dao
                     lav.endereco = dr["endereco"].ToString();
 
                 }
+                con.desconectar();
+                dr.Close();
                 return lav;
 
             }

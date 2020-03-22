@@ -131,6 +131,8 @@ namespace tccLavanderia.dao
                     empresa.endereco = dr["endereco"].ToString();
 
                 }
+                con.desconectar();
+                dr.Close();
                 return empresa;
 
             }
