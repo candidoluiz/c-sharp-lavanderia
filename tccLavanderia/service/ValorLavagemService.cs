@@ -48,7 +48,7 @@ namespace tccLavanderia.service
             {
                 return valorLavagemDao.valor(modelo, lavanderiaId) * double.Parse(quantidade);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
 
                 throw;
