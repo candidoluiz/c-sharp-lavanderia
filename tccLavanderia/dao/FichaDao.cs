@@ -196,7 +196,7 @@ namespace tccLavanderia.dao
         {
 
             sql = "select f.id Cod, l.id, r.modelo Modelo,  tp.nome Tipo, l.processo lavagens, e.nome Empresa, " +
-                "lav.nome Lavanderia, f.data Datas, f.quantidade Quantidade, CAST(vl.valor as DECIMAL (12,2)) " +
+                "lav.nome Lavanderia, f.data Data, f.quantidade Quantidade, CAST(vl.valor as DECIMAL (12,2)) " +
                 "valorUnitario from ficha f " +
                      "INNER JOIN roupa r ON r.id = f.roupa_id " +
                      "INNER JOIN tecido t ON t.id =r.tecido_id " +
