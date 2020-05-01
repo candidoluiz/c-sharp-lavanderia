@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using tccLavanderia.model;
@@ -15,7 +16,10 @@ namespace tccLavanderia.dao
         private MySqlDataReader dr;
         private Lavanderia lav;
         private Cidade cidade;
-        private CidadeService cidadeService = new CidadeService();
+        private CidadeService cidadeService;
+        private ValorLavagemService valorLavagemService = new ValorLavagemService();
+        private List<ValorLavagem> valorLavagens;
+        MySqlCommand cmd;
 
         string sql = "";
 
@@ -27,7 +31,7 @@ namespace tccLavanderia.dao
             try
             {
                 con.conectar();
-                MySqlCommand cmd = new MySqlCommand(sql,con.conectar());
+                cmd = new MySqlCommand(sql,con.conectar());
 
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@nome", lavanderia.nome);
@@ -38,6 +42,10 @@ namespace tccLavanderia.dao
                 cmd.Parameters.AddWithValue("@bairro", lavanderia.bairro);
                 cmd.Parameters.AddWithValue("@cep", lavanderia.cep);
                 cmd.ExecuteNonQuery();
+                sql = "select max(l.id) from lavanderia l";
+                cmd = new MySqlCommand(sql, con.conectar());
+                lavanderia.id = (int)cmd.ExecuteScalar();
+                salvarLavagem(lavanderia);
                 con.desconectar();
             }
             catch (Exception)
@@ -46,6 +54,40 @@ namespace tccLavanderia.dao
                 throw;
             }
             return true;
+        }
+
+        private void salvarLavagem(Lavanderia lavanderia)
+        {
+
+            sql = "insert into valor_lavagem(lavanderia_id, lavagem_id, valor) values(@lavanderia, @lavagem, @valor)";
+            foreach (ValorLavagem lavagem in lavanderia.valorLavagens)
+            {
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@lavagem", lavagem.lavagem.id);
+                cmd.Parameters.AddWithValue("@lavanderia", lavanderia.id);
+                cmd.Parameters.AddWithValue("@valor", lavagem.valor);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void excluirLavagem(int id)
+        {
+            sql = "delete from valor_lavagem where lavanderia_id=@id";
+
+            try
+            {
+                cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.desconectar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool editar(Lavanderia lavanderia)
@@ -73,7 +115,9 @@ namespace tccLavanderia.dao
                 cmd.Parameters.AddWithValue("@numero", lavanderia.numero);
                 cmd.Parameters.AddWithValue("@bairro", lavanderia.bairro);
                 cmd.Parameters.AddWithValue("@cep", lavanderia.cep);
+                this.excluirLavagem(lavanderia.id);
                 cmd.ExecuteNonQuery();
+                this.salvarLavagem(lavanderia);
                 con.desconectar();
             }
             catch (Exception)
@@ -158,7 +202,8 @@ namespace tccLavanderia.dao
         public Lavanderia consultarId(int id)
         {
             sql = "select * from lavanderia where id = @id";
-            
+            cidadeService = new CidadeService();
+
             try
             {
                 con.conectar();
@@ -170,6 +215,7 @@ namespace tccLavanderia.dao
                 {
                     lav = new Lavanderia();
                     cidade = cidadeService.consultarId(int.Parse(dr["cidade_id"].ToString()));
+                    valorLavagens = valorLavagemService.listarValorLavagem(int.Parse(dr["id"].ToString()));
 
                     lav.bairro = dr["bairro"].ToString();
                     lav.id = Int16.Parse(dr["id"].ToString());
@@ -179,6 +225,7 @@ namespace tccLavanderia.dao
                     lav.nome = dr["nome"].ToString();
                     lav.numero = dr["numero"].ToString();
                     lav.endereco = dr["endereco"].ToString();
+                    lav.valorLavagens = valorLavagens;
 
                 }
                 con.desconectar();

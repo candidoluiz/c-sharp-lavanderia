@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using tccLavanderia.dao;
 using tccLavanderia.model;
@@ -8,8 +9,6 @@ namespace tccLavanderia.service
     public class ValorLavagemService
     {
         ValorLavagemDao valorLavagemDao = new ValorLavagemDao();
-        LavanderiaService lavandariaService = new LavanderiaService();
-
 
         public ValorLavagem consultarId(int id)
         {
@@ -65,10 +64,12 @@ namespace tccLavanderia.service
         {
             return valorLavagemDao.verificarValoresLavagem(id);
         }
-
-        public DataTable consultarLavanderia()
+        
+      
+        
+        public List<ValorLavagem> listarValorLavagem(int id)
         {
-            return lavandariaService.pesquisar(null, null);
+            return valorLavagemDao.listarValorLavagem(id);
         }
     }
 }

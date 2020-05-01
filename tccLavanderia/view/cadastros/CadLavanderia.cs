@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using tccLavanderia.model;
 using tccLavanderia.service;
@@ -11,7 +14,10 @@ namespace tccLavanderia.view
         private LavanderiaService lavanderiaService = new LavanderiaService();
         private Lavanderia lavanderia;
         private CidadeService cidadeService = new CidadeService();
-        private Cidade cidade;  
+        private Cidade cidade;
+        private LavagemService lavagemService = new LavagemService();
+        private BindingList<ValorLavagem> lista = new BindingList<ValorLavagem>();
+        private ValorLavagem valorLavagem;
 
         public CadLavanderia(Lavanderia lavanderia)
         {
@@ -21,7 +27,9 @@ namespace tccLavanderia.view
             cbUf.SelectedIndex = -1;
             carregarCampos();
             desabilitarExcluir();
-           //cbCidade.Enabled = false;        
+            this.carregarCombos();
+            //cbCidade.Enabled = false;      
+            this.adicionarDatagrid();  
         }
 
         private void carregarCampos()
@@ -42,6 +50,8 @@ namespace tccLavanderia.view
                 cbUf.SelectedValue = lavanderia.cidade.uf;
                 cbCidade.SelectedValue = lavanderia.cidade.id;
             }
+            if (this.lavanderia.valorLavagens.Count > 0)
+                lista = new BindingList<ValorLavagem>( this.lavanderia.valorLavagens);
            
         }
 
@@ -84,6 +94,7 @@ namespace tccLavanderia.view
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             cidade = cidadeService.consultarId(Int16.Parse(cbCidade.SelectedValue.ToString()));
+            List<ValorLavagem> valorLavagens = lista.ToList();
             lavanderia = new Lavanderia(
                 lavanderia.id,
                 txtNome.Text.ToUpper(),
@@ -92,7 +103,8 @@ namespace tccLavanderia.view
                 cidade,
                 txtNumero.Text.ToUpper(), 
                 txtBairro.Text.ToUpper(),
-                txtCep.Text);
+                txtCep.Text,
+                valorLavagens);
 
             if (this.validarCampos())
             {
@@ -168,6 +180,70 @@ namespace tccLavanderia.view
             {
                 e.Handled = true;
             }
+        }
+
+        private void carregarCombos()
+        {
+            cbLavagem.ValueMember = "Cod";
+            cbLavagem.DisplayMember = "processo";
+            cbLavagem.DataSource = lavagemService.pesquisar(null, null);
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtValor.Text) || Double.Parse(txtValor.Text) == 0)
+            {
+                MessageBox.Show("Insira o valor da lavagem", "Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                valorLavagem = new ValorLavagem();
+                valorLavagem.lavagem = lavagemService.consultarId(Int16.Parse(cbLavagem.SelectedValue.ToString()));
+                valorLavagem.valor = Double.Parse(txtValor.Text);
+                if(verificarRepetido(dataGridView1, valorLavagem))
+                    lista.Add(valorLavagem);
+                this.adicionarDatagrid();
+            }
+        }
+
+        private void adicionarDatagrid()
+        {
+            dataGridView1.Rows.Clear();
+            foreach(ValorLavagem v in lista)
+            {
+                    dataGridView1.Rows.Add(v.lavagem.processo,v.valor.ToString("F"));
+            }
+           
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
+            if(dataGridView1.Rows.Count > 0)
+            {
+                lista.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+                this.adicionarDatagrid();
+            }
+           
+        }
+
+        private bool verificarRepetido(DataGridView dgv, ValorLavagem valor)
+        {
+            bool chave = true;
+
+            foreach(DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[0].Value.Equals(valor.lavagem.processo))
+                    chave = false;
+                   
+            }
+            return chave;
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            Geral.monetario(ref txtValor);
         }
     }
 }
