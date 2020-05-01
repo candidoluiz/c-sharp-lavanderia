@@ -19,7 +19,9 @@ namespace tccLavanderia.view
         Tecido tecido = new Tecido();
         Tipo tipo = new Tipo();
         BindingList<Lavagem> lista = new BindingList<Lavagem>();
+        BindingList<RoupaLavagem> listaRL = new BindingList<RoupaLavagem>();
         Lavagem lavagem;
+        RoupaLavagem roupaLavagem;
 
         public CadRoupa(Roupa roupa)
         {
@@ -30,6 +32,7 @@ namespace tccLavanderia.view
             this.carregarCombos();
             this.limparCampos();
             this.carregarCampos();
+            this.adicionarDatagrid();
 
         }
 
@@ -54,10 +57,10 @@ namespace tccLavanderia.view
                 cbTecido.SelectedValue = roupa.tecido.id;
             if (!String.IsNullOrWhiteSpace(roupa.estacao))
                 cbColecao.SelectedItem = roupa.estacao;
-            if (roupa.lavagens.Count > 0)
+            if (roupa.lavagens.Count > 0) { }
                 lista = new BindingList<Lavagem>(roupa.lavagens);
 
-            lbProcessoAdicionados.DataSource = lista;
+            //lbProcessoAdicionados.DataSource = lista;
 
 
         }
@@ -81,12 +84,16 @@ namespace tccLavanderia.view
             cbTipo.ValueMember = "cod";
             cbTipo.DataSource = tipoService.pesquisar(null, null);
 
+            cbLavagem.DisplayMember = "processo";
+            cbLavagem.ValueMember = "Cod";
+            cbLavagem.DataSource = lavagemSerice.pesquisar(null, null);
+            /*
             lbProcesso.DisplayMember = "processo";
             lbProcesso.ValueMember = "cod";
             lbProcesso.DataSource = lavagemSerice.pesquisar(null,null);
 
             lbProcessoAdicionados.DisplayMember = "processo";
-            lbProcessoAdicionados.ValueMember = "cod";
+            lbProcessoAdicionados.ValueMember = "cod"; */
         }
 
         private bool validarCampos()
@@ -95,8 +102,7 @@ namespace tccLavanderia.view
                 txtModelo.Text.Equals("") ||
                 cbColecao.SelectedIndex < 0 ||
                 cbTecido.SelectedIndex < 0 ||
-                cbTipo.SelectedIndex < 0 ||
-                lista.Count == 0)
+                cbTipo.SelectedIndex < 0)
             {
                 return false;
             }
@@ -129,8 +135,6 @@ namespace tccLavanderia.view
                     this.limparCampos();
                     txtAno.Focus();
                     roupa = new Roupa();
-                    lista.Clear();
-                    lbProcessoAdicionados.DataSource = lista;
                 }
             }
             else
@@ -138,6 +142,20 @@ namespace tccLavanderia.view
                 MessageBox.Show("Preencha todos os campos");
             }         
         }
+        /*
+        private List<Lavagem> trocarLista()
+        {
+            Lavagem l;
+            List<Lavagem> rls = new List<Lavagem>();
+
+            foreach(RoupaLavagem rl in listaRL)
+            {
+                l = new Lavagem();
+                l = rl.lavagem;
+                rls.Add(l);
+            }
+            return rls;
+        }*/
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -150,26 +168,21 @@ namespace tccLavanderia.view
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            if(lbProcesso.SelectedValue != null)
-            {
                 lavagem = new Lavagem();
-                lavagem.id = int.Parse(lbProcesso.SelectedValue.ToString());
-                lavagem.processo = lbProcesso.GetItemText(lbProcesso.SelectedItem);
-                lista.Add(lavagem);
-                lbProcessoAdicionados.DataSource = lista;
-                lbProcesso.ClearSelected();
-            }
-            
+                lavagem = lavagemSerice.consultarId(Int16.Parse(cbLavagem.SelectedValue.ToString()));
+                if (verificarRepetido(dataGridView1, roupaLavagem))
+                 lista.Add(lavagem);
+                this.adicionarDatagrid();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if(lbProcessoAdicionados.SelectedIndex > -1)
+            if (dataGridView1.Rows.Count > 0)
             {
-                lista.RemoveAt(lbProcessoAdicionados.SelectedIndex);
-                lbProcessoAdicionados.DataSource = lista;
+                lista.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+                this.adicionarDatagrid();
             }
-            
+
         }
 
         private void txtAno_KeyPress(object sender, KeyPressEventArgs e)
@@ -192,5 +205,29 @@ namespace tccLavanderia.view
                 e.Handled = true;
             }
         }
+
+        private bool verificarRepetido(DataGridView dgv, RoupaLavagem roupaLavagem)
+        {
+            bool chave = true;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[0].Value.Equals(roupaLavagem.lavagem.processo))
+                    chave = false;
+
+            }
+            return chave;
+        }
+
+        private void adicionarDatagrid()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (Lavagem v in lista)
+            {
+                dataGridView1.Rows.Add(v.processo);
+            }
+
+        }
+
     }
 }

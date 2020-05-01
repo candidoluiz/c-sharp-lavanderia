@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using tccLavanderia.model;
 using tccLavanderia.repository;
@@ -18,7 +19,7 @@ namespace tccLavanderia.dao
         ValorLavagem valorLavagem;
         Lavanderia lavanderia;
         Lavagem lavagem;
-        LavanderiaService lavanderiaService = new LavanderiaService();
+        LavanderiaService lavanderiaService;
         LavagemService lavagemService = new LavagemService();
 
         public bool salvar(ValorLavagem valorLavagem)
@@ -128,6 +129,8 @@ namespace tccLavanderia.dao
         public ValorLavagem consultarId(int id)
         {
             sql = "select * from valor_lavagem where id = @id";
+            lavanderiaService = new LavanderiaService();
+            lavagemService = new LavagemService();
 
             try
             {
@@ -222,6 +225,39 @@ namespace tccLavanderia.dao
             }
             catch (Exception e)
             {
+                throw;
+            }
+        }
+
+        public List<ValorLavagem> listarValorLavagem(int id)
+        {
+            lavanderiaService = new LavanderiaService();
+            sql = "select * from valor_Lavagem vl inner join lavanderia l on l.id = vl.lavanderia_id where vl.lavanderia_id = @id";
+            List<ValorLavagem> lista = new List<ValorLavagem>();
+            try
+            {
+                con.conectar();
+                MySqlCommand cmd = new MySqlCommand(sql, con.conectar());
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    valorLavagem = new ValorLavagem();
+                    lavagem = lavagemService.consultarId(int.Parse(dr["lavagem_id"].ToString()));
+
+                    valorLavagem.lavagem = lavagem;
+                    valorLavagem.id = Int16.Parse(dr["id"].ToString());
+                    valorLavagem.valor = Double.Parse(dr["valor"].ToString());
+                    lista.Add(valorLavagem);
+                }
+                con.desconectar();
+                dr.Close();
+                return lista;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

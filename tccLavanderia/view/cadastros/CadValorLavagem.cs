@@ -29,7 +29,7 @@ namespace tccLavanderia.view.cadastros
 
         private void carregarCampos()
         {
-            txtValor.Text = valorLavagem.valor.ToString();
+            txtValor.Text = valorLavagem.valor.ToString("F");
             txtCod.Text = Geral.removerZero(valorLavagem.id);                                             
                          
             if (!String.IsNullOrWhiteSpace(valorLavagem.lavanderia.nome))
@@ -134,32 +134,6 @@ namespace tccLavanderia.view.cadastros
             }
             
         }
-
-        private void txtValor_TextChanged(object sender, EventArgs e)
-        {
-            monetario(ref txtValor);
-        }
-
-        private static void monetario(ref TextBox txtValor)
-        {
-            string numero = string.Empty;
-            double valor = 0;
-
-            try
-            {
-                numero = txtValor.Text.Replace(",", "").Replace(".", "");
-                if (numero.Equals(""))
-                    numero = "";
-
-                numero = numero.PadLeft(3, '0');
-
-                if (numero.Length > 3 & numero.Substring(0,1) == "0")
-                    numero = numero.Substring(1,numero.Length -1);
-                valor = Convert.ToDouble(numero) / 100;
-                txtValor.Text = string.Format("{0:N}", valor);
-                txtValor.SelectionStart = txtValor.Text.Length;
-            }
-            catch (Exception) { };
-        }
+        
     }
 }

@@ -17,8 +17,9 @@ namespace tccLavanderia.model
         public string numero { get; set; }
         public string bairro { get; set; }
         public string cep { get; set; }
+        public List<ValorLavagem> valorLavagens { get; set; }
 
-        public Lavanderia(int id, string nome, string cnpj, string endereco, Cidade cidade, string numero, string bairro, string cep)
+        public Lavanderia(int id, string nome, string cnpj, string endereco, Cidade cidade, string numero, string bairro, string cep, List<ValorLavagem> valorLavagens)
         {
             this.id = id;
             this.nome = nome;
@@ -28,11 +29,13 @@ namespace tccLavanderia.model
             this.numero = numero;
             this.bairro = bairro;
             this.cep = cep;
+            this.valorLavagens = valorLavagens;
         }
 
         public Lavanderia()
         {
             cidade = new Cidade();
+            valorLavagens = new List<ValorLavagem>();
         }
 
     }

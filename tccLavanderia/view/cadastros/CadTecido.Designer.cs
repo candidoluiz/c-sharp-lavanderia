@@ -50,11 +50,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(433, 50);
+            this.label1.Location = new System.Drawing.Point(304, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(398, 37);
+            this.label1.Size = new System.Drawing.Size(377, 37);
             this.label1.TabIndex = 22;
-            this.label1.Text = "CADASTRO DE TECIDOS";
+            this.label1.Text = "CADASTRO DE TECIDO";
             // 
             // groupBox1
             // 
@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(10, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1242, 394);
+            this.groupBox1.Size = new System.Drawing.Size(962, 211);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             // 
@@ -85,16 +85,16 @@
             // txtComposicao
             // 
             this.txtComposicao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComposicao.Location = new System.Drawing.Point(618, 93);
+            this.txtComposicao.Location = new System.Drawing.Point(512, 93);
             this.txtComposicao.Name = "txtComposicao";
-            this.txtComposicao.Size = new System.Drawing.Size(618, 26);
+            this.txtComposicao.Size = new System.Drawing.Size(444, 26);
             this.txtComposicao.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(618, 70);
+            this.label3.Location = new System.Drawing.Point(512, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 13;
@@ -105,7 +105,7 @@
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(10, 93);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(602, 26);
+            this.txtNome.Size = new System.Drawing.Size(496, 26);
             this.txtNome.TabIndex = 12;
             // 
             // label2
@@ -139,7 +139,7 @@
             this.btnSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(984, 42);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 666);
+            this.ClientSize = new System.Drawing.Size(984, 400);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

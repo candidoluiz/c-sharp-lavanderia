@@ -24,7 +24,7 @@ namespace tccLavanderia.view
         {
             cbLavanderia.ValueMember = "nome";
             cbLavanderia.DisplayMember = "nome";
-            cbLavanderia.DataSource = valorLavagemService.consultarLavanderia();
+           // cbLavanderia.DataSource = valorLavagemService.consultarLavanderia();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)

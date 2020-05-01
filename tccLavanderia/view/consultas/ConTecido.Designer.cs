@@ -64,7 +64,7 @@
             this.btnSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(984, 42);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -131,7 +131,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(434, 50);
+            this.label1.Location = new System.Drawing.Point(294, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(396, 37);
             this.label1.TabIndex = 21;
@@ -145,7 +145,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(10, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1242, 100);
+            this.groupBox1.Size = new System.Drawing.Size(962, 100);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -155,7 +155,7 @@
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.Location = new System.Drawing.Point(156, 41);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(1080, 26);
+            this.txtNome.Size = new System.Drawing.Size(800, 26);
             this.txtNome.TabIndex = 12;
             // 
             // txtCod
@@ -221,14 +221,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1242, 430);
+            this.dataGridView1.Size = new System.Drawing.Size(962, 430);
             this.dataGridView1.TabIndex = 24;
             // 
             // ConTecido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 666);
+            this.ClientSize = new System.Drawing.Size(984, 666);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

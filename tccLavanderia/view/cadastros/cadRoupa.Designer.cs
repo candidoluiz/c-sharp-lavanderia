@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -35,6 +38,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAno = new System.Windows.Forms.TextBox();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.cbTecido = new System.Windows.Forms.ComboBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
@@ -47,13 +51,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbProcesso = new System.Windows.Forms.ListBox();
-            this.lbProcessoAdicionados = new System.Windows.Forms.ListBox();
-            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.txtAno = new System.Windows.Forms.TextBox();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Processo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbLavagem = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -77,7 +89,7 @@
             this.btnSalvar.Image = global::tccLavanderia.Properties.Resources.disk;
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(60, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(62, 39);
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -128,11 +140,21 @@
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(10, 108);
+            this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(962, 196);
+            this.groupBox1.Size = new System.Drawing.Size(950, 196);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // txtAno
+            // 
+            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAno.Location = new System.Drawing.Point(10, 74);
+            this.txtAno.MaxLength = 4;
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(225, 26);
+            this.txtAno.TabIndex = 22;
+            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress_1);
             // 
             // cbTipo
             // 
@@ -141,7 +163,7 @@
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Location = new System.Drawing.Point(557, 74);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(399, 28);
+            this.cbTipo.Size = new System.Drawing.Size(387, 28);
             this.cbTipo.TabIndex = 2;
             // 
             // cbTecido
@@ -159,7 +181,7 @@
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.Location = new System.Drawing.Point(245, 130);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(711, 26);
+            this.txtModelo.Size = new System.Drawing.Size(699, 26);
             this.txtModelo.TabIndex = 4;
             // 
             // label2
@@ -254,69 +276,140 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "CADASTRO DE ROUPA";
             // 
-            // lbProcesso
+            // tabControl1
             // 
-            this.lbProcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProcesso.FormattingEnabled = true;
-            this.lbProcesso.ItemHeight = 20;
-            this.lbProcesso.Location = new System.Drawing.Point(567, 374);
-            this.lbProcesso.Name = "lbProcesso";
-            this.lbProcesso.Size = new System.Drawing.Size(207, 284);
-            this.lbProcesso.TabIndex = 18;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 102);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(972, 448);
+            this.tabControl1.TabIndex = 22;
             // 
-            // lbProcessoAdicionados
+            // tabPage1
             // 
-            this.lbProcessoAdicionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProcessoAdicionados.FormattingEnabled = true;
-            this.lbProcessoAdicionados.ItemHeight = 20;
-            this.lbProcessoAdicionados.Location = new System.Drawing.Point(158, 374);
-            this.lbProcessoAdicionados.Name = "lbProcessoAdicionados";
-            this.lbProcessoAdicionados.Size = new System.Drawing.Size(207, 284);
-            this.lbProcessoAdicionados.TabIndex = 19;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(964, 422);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "DADOS GERAIS";
             // 
-            // btnAdicionar
+            // tabPage2
             // 
-            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionar.Location = new System.Drawing.Point(405, 422);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(139, 38);
-            this.btnAdicionar.TabIndex = 20;
-            this.btnAdicionar.Text = "<- ADICIONAR";
-            this.btnAdicionar.UseVisualStyleBackColor = true;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.btnRemover);
+            this.tabPage2.Controls.Add(this.btnAdicionar);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.cbLavagem);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(964, 422);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "PROCESSOS DE LAVAGEM";
             // 
             // btnRemover
             // 
+            this.btnRemover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
             this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemover.Location = new System.Drawing.Point(405, 525);
+            this.btnRemover.Location = new System.Drawing.Point(841, 101);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(139, 38);
-            this.btnRemover.TabIndex = 21;
-            this.btnRemover.Text = "REMOVER ->";
-            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Size = new System.Drawing.Size(115, 32);
+            this.btnRemover.TabIndex = 37;
+            this.btnRemover.Text = "REMOVER";
+            this.btnRemover.UseVisualStyleBackColor = false;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
-            // txtAno
+            // btnAdicionar
             // 
-            this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAno.Location = new System.Drawing.Point(10, 74);
-            this.txtAno.MaxLength = 4;
-            this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(225, 26);
-            this.txtAno.TabIndex = 22;
-            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress_1);
+            this.btnAdicionar.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.Location = new System.Drawing.Point(708, 101);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(115, 32);
+            this.btnAdicionar.TabIndex = 36;
+            this.btnAdicionar.Text = "ADICIONAR";
+            this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Processo});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 139);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(952, 277);
+            this.dataGridView1.TabIndex = 33;
+            // 
+            // Processo
+            // 
+            this.Processo.FillWeight = 20F;
+            this.Processo.HeaderText = "Processo de Lavagem";
+            this.Processo.Name = "Processo";
+            this.Processo.ReadOnly = true;
+            // 
+            // cbLavagem
+            // 
+            this.cbLavagem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLavagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLavagem.FormattingEnabled = true;
+            this.cbLavagem.Location = new System.Drawing.Point(6, 43);
+            this.cbLavagem.Name = "cbLavagem";
+            this.cbLavagem.Size = new System.Drawing.Size(394, 28);
+            this.cbLavagem.TabIndex = 32;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(209, 20);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "PROCESSO DE LAVAGEM";
             // 
             // CadRoupa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 666);
-            this.Controls.Add(this.btnRemover);
-            this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.lbProcessoAdicionados);
-            this.Controls.Add(this.lbProcesso);
+            this.ClientSize = new System.Drawing.Size(984, 562);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CadRoupa";
@@ -326,6 +419,11 @@
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,11 +448,16 @@
         private System.Windows.Forms.ComboBox cbTecido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbTipo;
-        private System.Windows.Forms.ListBox lbProcesso;
-        private System.Windows.Forms.ListBox lbProcessoAdicionados;
-        private System.Windows.Forms.Button btnAdicionar;
-        private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.ToolStripButton btnSair;
         private System.Windows.Forms.TextBox txtAno;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox cbLavagem;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Processo;
     }
 }

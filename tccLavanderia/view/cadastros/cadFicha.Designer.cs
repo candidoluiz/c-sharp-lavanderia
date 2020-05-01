@@ -32,6 +32,7 @@
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,9 +63,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbLavanderia = new System.Windows.Forms.ComboBox();
-
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
-
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,12 +74,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalvar,
             this.toolStripSeparator1,
-
-
             this.btnExcluir,
-
             this.btnSair});
-
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1264, 42);
@@ -94,7 +88,7 @@
             this.btnSalvar.Image = global::tccLavanderia.Properties.Resources.disk;
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(60, 39);
+            this.btnSalvar.Size = new System.Drawing.Size(62, 39);
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -103,14 +97,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 42);
-            // 
-            // btnImprimir
-            // 
-           
-            // 
-            // toolStripSeparator2
-            // 
-           
             // 
             // btnExcluir
             // 
@@ -121,6 +107,11 @@
             this.btnExcluir.Size = new System.Drawing.Size(66, 39);
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(23, 39);
             // 
             // txtId
             // 
@@ -398,7 +389,6 @@
             this.txtComposicao.TabStop = false;
             // 
             // txtTipo
-
             // 
             this.txtTipo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTipo.Enabled = false;
@@ -460,7 +450,6 @@
             this.cbLavanderia.Size = new System.Drawing.Size(385, 28);
             this.cbLavanderia.TabIndex = 2;
             this.cbLavanderia.SelectedIndexChanged += new System.EventHandler(this.cbLavanderia_SelectedIndexChanged);
-
             // 
             // CadFicha
             // 
